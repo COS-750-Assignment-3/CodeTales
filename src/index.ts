@@ -67,6 +67,30 @@ if (ws) {
   });
 }
 
-function someFunction() {
-  console.log('hello');
+
+var activity = 0;
+
+const activityArray = [
+  'Create a program that checks if Bob or Alice is older using the if block.',
+  'Create a program that counts from 1 to 10 using the for block.',
+  'Create a program that prints "Hello, World!" using the text block.',
+];
+
+const instructionDiv = document.getElementById('instruction');
+
+if (instructionDiv) {
+  instructionDiv.textContent = activityArray[activity];
 }
+
+const activityHeading = document.getElementById('activity-heading');
+
+if (activityHeading) {
+  activityHeading.textContent = `Activity ${activity + 1}`;
+}
+
+export function someFunction() {
+  document.getElementById('activity-heading')!.innerHTML = `Activity ${++activity % 3 + 1}`;
+  document.getElementById('instruction')!.innerHTML = activityArray[activity % 3];
+}
+
+(window as any).someFunction = someFunction;
