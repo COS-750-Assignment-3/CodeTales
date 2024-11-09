@@ -326,6 +326,10 @@ export const toolbox = {
       contents: [
         {
           kind: 'block',
+          type: 'text_print', // new print block
+        },
+        {
+          kind: 'block',
           type: 'text',
         },
         {
