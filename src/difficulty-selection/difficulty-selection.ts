@@ -13,7 +13,7 @@ export function navigateTo(route: string) {
 
 function initialize() {
     console.log("Initializing");
-    localStorage.clear();
+
     if (localStorage.getItem("quizResult") === null) {
 
         localStorage.setItem("quizResult", "3"); // set quiz result to highest difficulty. This implies the user clicked on I know what I'm doing
