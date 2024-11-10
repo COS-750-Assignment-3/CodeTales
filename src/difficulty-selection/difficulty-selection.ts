@@ -37,13 +37,24 @@ function initialize() {
 
         button.onclick = () => {
             console.log(`Navigating to activity ${i}`);
-            navigateToActivity(i);
+            navigateToTask(i);
         }
 
         if (localStorage.getItem(`t${i}`) === "0") {
             button.innerHTML += lockIcon;
-            button.disabled = true;
             button.style.backgroundColor = "#FF4B4B";
+
+            const icon = button.querySelector("i")!;
+
+            button.onclick = function () {
+                // Trigger the shake animation by adding the class
+                icon.classList.add("shake-head");
+
+                // Remove the class after the animation is done to reset it
+                setTimeout(() => {
+                    icon.classList.remove("shake-head");
+                }, 500); // 500ms matches the duration of the animation
+            };
         }
         if (localStorage.getItem(`t${i}`) === "1") {
             button.innerHTML += rightArrowIcon;
@@ -61,8 +72,8 @@ function initialize() {
 
 initialize();
 
-export function navigateToActivity(activity: number) {
-    navigateTo(`index.html?activity=${activity}`);
+export function navigateToTask(task: number) {
+    navigateTo(`index.html?t=${task}`);
 }
 
-(window as any).navigateToActivity = navigateToActivity;
+(window as any).navigateToTask = navigateToTask;
