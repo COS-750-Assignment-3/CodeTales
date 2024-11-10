@@ -76,24 +76,26 @@ body {
 .tutorial-description {
     flex: 4;
     padding: 0.5rem 2rem;
-    text-align: center;
 }
 
 .tutorial-heading {
     color: #FF9600;
     text-align: left;
     font-weight: bold;
+    font-size: 40px;
 }
 
 .difficulty-heading {
     color: black;
     text-align: left;
     font-weight: bold;
+    font-size: 40px;
 }
 
 .tutorial-sub-text {
     color: #4B4B4B;
     text-align: left;
+    font-size: 20px;
 }
 
 .task-sub-text {
@@ -118,6 +120,7 @@ body {
     align-items: center;
     padding-inline: 1rem;
     cursor: pointer;
+    font-size: 20px;
 }
 
 button i {
