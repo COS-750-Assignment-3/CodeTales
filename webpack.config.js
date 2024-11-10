@@ -7,6 +7,7 @@ const config = {
     main: './src/index.ts', // Default entry for index.html
     landing: './src/landing/landing.ts', // New entry for landing.html
     quiz: './src/quiz/quiz.ts', // New entry for landing.html
+    difficultySelection: './src/difficulty-selection/difficulty-selection.ts', // New entry for landing.html
   },
   output: {
     // Compile the source files into a bundle.
@@ -51,12 +52,12 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'src/quiz/quiz.html',
       filename: 'quiz.html',
-      chunks: ['main'],
+      chunks: ['quiz'],
     }),
     new HtmlWebpackPlugin({
       template: 'src/difficulty-selection/difficulty-selection.html',
       filename: 'difficulty-selection.html',
-      chunks: ['main'],
+      chunks: ['difficultySelection'],
     }),
   ],
 };
