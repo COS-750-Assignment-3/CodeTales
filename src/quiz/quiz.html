@@ -7,11 +7,70 @@
 </head>
 
 <body>
-    <h1>Quiz Page</h1>
-    <button class="btn btn-dark" onclick="navigateTo('landing.html')">To landing page</button>
-    <button class="btn btn-dark" onclick="navigateTo('quiz.html')">To quiz page</button>
-    <button class="btn btn-dark" onclick="navigateTo('difficulty-selection.html')">To difficulty-selection page</button>
-    <button class="btn btn-dark" onclick="navigateTo('index.html')">To index page</button>
+    <div class="center">
+        <div class="quiz-wrapper">
+
+            <div class="heading-badge">
+                <h1 class="mb-0">Placement Quiz</h1>
+            </div>
+            <div class="gap32"></div>
+            <div>
+                <div>
+                    <p class="mb-0">1. Have you ever used blockly before?</p>
+                    <div class="checkbox-wrapper">
+
+                        <input class="form-check-input" type="radio" name="q1" id="q1o1" value="1" />
+                        <label class="form-check-label" for="q1o1">
+                            Yes
+                        </label>
+                        <div></div>
+                        <input class="form-check-input" type="radio" name="q1" id="q1o2" value="0" />
+                        <label class="form-check-label" for="q1o2">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="gap16"></div>
+                <div>
+                    <p class="mb-0">2. Do you have experience with if/else statements?</p>
+                    <div class="checkbox-wrapper">
+
+                        <input class="form-check-input" type="radio" name="q2" id="q2o1" value="1" />
+                        <label class="form-check-label" for="q2o1">
+                            Yes
+                        </label>
+                        <div></div>
+                        <input class="form-check-input" type="radio" name="q2" id="q2o2" value="0" />
+                        <label class="form-check-label" for="q2o2">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="gap16"></div>
+                <div>
+                    <p class="mb-0">3. Do you have experience with for loops?</p>
+                    <div class="checkbox-wrapper">
+
+                        <input class="form-check-input" type="radio" name="q3" id="q3o1" value="1" />
+                        <label class="form-check-label" for="q3o1">
+                            Yes
+                        </label>
+                        <div></div>
+                        <input class="form-check-input" type="radio" name="q3" id="q3o2" value="0" />
+                        <label class="form-check-label" for="q3o2">
+                            No
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="gap32"></div>
+            <button class="btn submit-button" onclick="setDifficulty()">Let's go code!</button>
+            <div class="gap32"></div>
+            <p id="error-text"></p>
+        </div>
+    </div>
+
 </body>
 
 </html>
