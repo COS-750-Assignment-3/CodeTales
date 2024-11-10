@@ -8,15 +8,16 @@ body {
 h1 {
     color: white;
     text-align: center;
+    font-size: 64px;
+    font-weight: bold;
 }
 
 .heading-badge {
     background-color: #1254A9;
     color: white;
-    padding: 0.5rem;
     border-radius: 100vw;
     width: fit-content;
-    padding: 0.5rem 3rem;
+    padding: 0.7rem 5rem;
 }
 
 .checkbox-wrapper {
@@ -37,6 +38,14 @@ h1 {
     height: auto;
 }
 
+.question {
+    font-size: 24px;
+}
+
+label {
+    font-size: 15px;
+}
+
 .gap16 {
     height: 16px;
 }
@@ -45,16 +54,66 @@ h1 {
     height: 32px;
 }
 
+.gap64 {
+    height: 64px;
+}
+
 .submit-button {
     background-color: #1254A9;
     border-color: #1254A9;
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    padding: 1rem 2rem;
     color: white;
     border: none;
+    font-size: 24px;
 }
 
 #error-text {
     color: red;
     height: 1rem;
+}
+
+.label-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.label-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border-radius: 3px;
+    border: 2px solid black;
+    color: transparent;
+    transition: 0.3s;
+}
+
+/* On mouse-over, add a grey background color */
+.label-container:hover input~.checkmark {
+    background-color: #cccccc74;
+}
+
+/* When the radio button is checked, add a blue background */
+.label-container input:checked~.checkmark {
+    background-color: black;
+    color: white;
 }
