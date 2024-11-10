@@ -88,9 +88,8 @@ if (activityHeading) {
   activityHeading.textContent = `Activity ${activity + 1}`;
 }
 
-export function someFunction() {
-  document.getElementById('activity-heading')!.innerHTML = `Activity ${++activity % 3 + 1}`;
-  document.getElementById('instruction')!.innerHTML = activityArray[activity % 3];
+export function navigateTo(route: string) {
+  window.location.href = route;
 }
 
-(window as any).someFunction = someFunction;
+(window as any).navigateTo = navigateTo;
