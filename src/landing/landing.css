@@ -28,11 +28,13 @@ body {
 
 .heading {
     color: #47A600;
+    font-size: 64px;
     font-weight: bold;
 }
 
 .sub-heading {
     color: #FF9600;
+    font-size: 40px;
     font-weight: bold;
 }
 
@@ -55,14 +57,39 @@ body {
 
 .quiz-button {
     padding: 0.5rem 2rem;
+    border: none;
     background-color: #1254A9;
     border-color: #1254A9;
     color: white;
     border-radius: 16px;
+    font-size: 24px;
 }
 
 a {
     text-decoration: none;
+    font-size: 20px;
     color: #BCB49E;
-    width: fit-content;
+    position: relative;
+    /* To position the underline */
+    display: inline-block;
+    transition: color 0.3s;
+    /* Optional: to smoothly transition the text color */
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #BCB49E;
+    /* Underline color */
+    transition: width 0.3s ease-in-out;
+    /* Make the underline fade in */
+}
+
+a:hover::after {
+    width: 100%;
+    /* Underline fills the width of the link when hovered */
 }
