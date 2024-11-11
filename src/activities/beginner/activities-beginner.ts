@@ -12,8 +12,8 @@ import { save, load } from "../../serialization";
 import { toolbox } from "./toolbox";
 import "./activities-beginner.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Toast } from "bootstrap";
-import { show } from "blockly/core/contextmenu";
+import "../../toast/toast.css"
+import { showToast } from "../../toast/toast";
 
 // Get the current URL
 const url = new URL(window.location.href);
@@ -368,22 +368,6 @@ if (ws) {
   }
   if (submitButton) {
     submitButton.addEventListener("click", submitCode);
-  }
-}
-
-function showToast(heading: string, body: string) {
-  const toastHeading = document.getElementById('toast-heading');
-  if (toastHeading)
-    toastHeading.innerHTML = heading;
-
-  const toastBody = document.getElementById('toast-body');
-  if (toastBody)
-    toastBody.innerHTML = body;
-
-  const toastElement = document.getElementById('myToast');
-  if (toastElement) {
-    const toast = new Toast(toastElement);
-    toast.show();
   }
 }
 

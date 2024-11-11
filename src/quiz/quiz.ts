@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './quiz.css';
-import { Toast } from 'bootstrap';
+import "../toast/toast.css"
+import { showToast } from "../toast/toast";
 
 
 export function setDifficulty() {
@@ -50,23 +51,6 @@ export function setDifficulty() {
         showToast('Incomplete quiz', 'Please select all of the options');
     }
 }
-
-function showToast(heading: string, body: string) {
-    const toastHeading = document.getElementById('toast-heading');
-    if (toastHeading)
-        toastHeading.innerHTML = heading;
-
-    const toastBody = document.getElementById('toast-body');
-    if (toastBody)
-        toastBody.innerHTML = body;
-
-    const toastElement = document.getElementById('myToast');
-    if (toastElement) {
-        const toast = new Toast(toastElement);
-        toast.show();
-    }
-}
-
 
 export function navigateTo(route: string) {
     window.location.href = route;
