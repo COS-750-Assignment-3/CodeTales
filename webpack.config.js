@@ -73,6 +73,11 @@ const config = {
       filename: "activities-intermediate.html",
       chunks: ["activitiesIntermediate"],
     }),
+    new HtmlWebpackPlugin({
+      template: "src/activities/advanced/activities-advanced.html",
+      filename: "activities-advanced.html",
+      chunks: ["activitiesAdvanced"],
+    }),
   ],
 };
 
