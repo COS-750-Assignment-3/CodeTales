@@ -62,6 +62,12 @@ body {
     border-color: #FFDBA6;
     border-radius: 16px;
     border: none;
+    transition: 0.3s;
+}
+
+.tutorial-button:hover {
+    filter: saturate(1.2);
+    scale: 1.05
 }
 
 .tutorial-image {
@@ -121,6 +127,12 @@ body {
     padding-inline: 1rem;
     cursor: pointer;
     font-size: 20px;
+    transition: 0.3s;
+}
+
+.task-button:hover {
+    filter: brightness(1.2);
+    scale: 1.05;
 }
 
 button i {

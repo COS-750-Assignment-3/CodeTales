@@ -59,10 +59,15 @@ body {
     padding: 0.5rem 2rem;
     border: none;
     background-color: #1254A9;
-    border-color: #1254A9;
     color: white;
     border-radius: 16px;
     font-size: 24px;
+    transition: 0.3s;
+}
+
+.quiz-button:hover {
+    filter: brightness(1.2);
+    scale: 1.05;
 }
 
 a {
