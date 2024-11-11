@@ -1,2 +1,4 @@
-npm install blockly --save
-npm run start
+# Running Instructions
+npm install blockly --save 
+npm install 
+npm run start 

@@ -11,6 +11,8 @@ import { javascriptGenerator } from 'blockly/javascript';
 import { save, load } from './serialization';
 import { toolbox } from './toolbox';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Register the blocks and generator with Blockly
 Blockly.common.defineBlocks(blocks);
@@ -88,9 +90,8 @@ if (activityHeading) {
   activityHeading.textContent = `Activity ${activity + 1}`;
 }
 
-export function someFunction() {
-  document.getElementById('activity-heading')!.innerHTML = `Activity ${++activity % 3 + 1}`;
-  document.getElementById('instruction')!.innerHTML = activityArray[activity % 3];
+export function navigateTo(route: string) {
+  window.location.href = route;
 }
 
-(window as any).someFunction = someFunction;
+(window as any).navigateTo = navigateTo;

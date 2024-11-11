@@ -3,10 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Base config that applies to either development or production mode.
 const config = {
-  entry: './src/index.ts',
+  entry: {
+    main: './src/index.ts', // Default entry for index.html
+    landing: './src/landing/landing.ts', // New entry for landing.html
+    quiz: './src/quiz/quiz.ts', // New entry for landing.html
+    difficultySelection: './src/difficulty-selection/difficulty-selection.ts', // New entry for landing.html
+  },
   output: {
     // Compile the source files into a bundle.
-    filename: 'bundle.js',
+    filename: '[name].bundle.js', // Separate bundles for each entry point
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
@@ -37,6 +42,22 @@ const config = {
     // created above added in a script tag.
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      chunks: ['main'], // Only include the main chunk for index.html
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/landing/landing.html',
+      filename: 'landing.html',
+      chunks: ['landing'], // Include the landing chunk for landing.html
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/quiz/quiz.html',
+      filename: 'quiz.html',
+      chunks: ['quiz'],
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/difficulty-selection/difficulty-selection.html',
+      filename: 'difficulty-selection.html',
+      chunks: ['difficultySelection'],
     }),
   ],
 };
