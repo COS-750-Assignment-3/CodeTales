@@ -1,5 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './quiz.css';
+import "../toast/toast.css"
+import { showToast } from "../toast/toast";
+
 
 export function setDifficulty() {
     const selectedQ1 = document.querySelector('input[name="q1"]:checked') as HTMLInputElement;
@@ -45,7 +48,7 @@ export function setDifficulty() {
 
     } else {
         console.log("No option selected");
-        document.getElementById("error-text")!.innerHTML = "Please select all of the options";
+        showToast('Incomplete quiz', 'Please select all of the options');
     }
 }
 

@@ -12,6 +12,8 @@ import { save, load } from "../../serialization";
 import { toolbox } from "./toolbox";
 import "./activities-beginner.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../toast/toast.css"
+import { showToast } from "../../toast/toast";
 
 // Get the current URL
 const url = new URL(window.location.href);
@@ -320,7 +322,7 @@ const testCode = () => {
 const submitCode = () => {
   const res = activityArray[activity].checkCode();
   if (res === true) {
-    alert("Correct Answer");
+    showToast("Correct Answer", "Well done! You got the correct answer.");
     if (activity < activityArray.length - 1) {
       updateQueryParam(++activity);
     } else {
@@ -329,7 +331,7 @@ const submitCode = () => {
 
     ws.clear();
   } else {
-    alert("Incorrect Answer");
+    showToast("Incorrect Answer", "Oh No! You got the incorrect answer. Give it another try.");
   }
   return res;
 };

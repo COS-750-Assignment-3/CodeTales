@@ -1,0 +1,44 @@
+/* Toast container */
+.toast {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #266bc4d5;
+    color: white;
+    opacity: 0.95;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+}
+
+/* Toast header */
+.toast-header {
+    background-color: #1254A9;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.toast-header strong {
+    font-size: 1rem;
+}
+
+/* Close button */
+.toast-header .close {
+    color: white;
+    font-size: 1.25rem;
+    opacity: 0.8;
+}
+
+.toast-header .close:hover {
+    opacity: 1;
+    /* Full opacity on hover */
+}
+
+/* Toast body */
+.toast-body {
+    padding: 1rem;
+    font-size: 0.9rem;
+}
