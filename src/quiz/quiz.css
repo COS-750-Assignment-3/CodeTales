@@ -60,12 +60,17 @@ label {
 
 .submit-button {
     background-color: #1254A9;
-    border-color: #1254A9;
     border-radius: 16px;
     padding: 1rem 2rem;
     color: white;
     border: none;
     font-size: 24px;
+    transition: 0.3s;
+}
+
+.submit-button:hover {
+    filter: brightness(1.2);
+    scale: 1.05;
 }
 
 #error-text {
@@ -84,16 +89,15 @@ label {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    transition: 0.3s;
 }
 
-/* Hide the browser's default radio button */
 .label-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
 
-/* Create a custom radio button */
 .checkmark {
     position: absolute;
     top: 0;
@@ -107,13 +111,11 @@ label {
     transition: 0.3s;
 }
 
-/* On mouse-over, add a grey background color */
 .label-container:hover input~.checkmark {
     background-color: #cccccc74;
 }
 
-/* When the radio button is checked, add a blue background */
 .label-container input:checked~.checkmark {
-    background-color: black;
+    background-color: #1254A9;
     color: white;
 }
