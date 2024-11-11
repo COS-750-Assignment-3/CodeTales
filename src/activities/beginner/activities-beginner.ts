@@ -13,6 +13,28 @@ import { toolbox } from "./toolbox";
 import "./activities-beginner.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Get the current URL
+const url = new URL(window.location.href);
+
+// Create a URLSearchParams object
+const params = new URLSearchParams(url.search);
+
+// Get the value of the 'activity' parameter, default to 0 if it doesn't exist
+let activity = parseInt(params.get("a") || "0", 10);
+
+function updateQueryParam(newActivity: number) {
+  activity = newActivity;
+
+  params.set("a", activity.toString());
+  window.history.replaceState({}, "", `${url.pathname}?${params.toString()}`);
+  if (instructionDiv) {
+    instructionDiv.textContent = activityArray[activity]["Instruction"];
+  }
+  if (activityHeading) {
+    activityHeading.textContent = `Activity ${activity + 1}`;
+  }
+}
+
 var start = {
   type: "start_block",
   message0: "Begin",
@@ -78,12 +100,9 @@ javascriptGenerator.forBlock["input_dropdown"] = function (block, generator) {
 
 javascriptGenerator.forBlock["output_block"] = function (block, generator) {
   const field = block.getFieldValue("output");
-  console.log(field);
 
   return `return "${field}"`;
 };
-
-var activity = 0;
 
 const activityArray = [
   {
@@ -112,19 +131,25 @@ Help him create this program within Blockly, that takes in temperature as input,
 
       const func = new Function("prompt", code);
       const return_value_1: string = func(mockPrompt1);
-
+      if (!return_value_1) {
+        return false;
+      }
       if (return_value_1.toLowerCase().trim() !== "hot") {
         return false;
       }
 
       const return_value_2 = func(mockPrompt2);
-
+      if (!return_value_1) {
+        return false;
+      }
       if (return_value_2.toLowerCase().trim() !== "cold") {
         return false;
       }
 
       const return_value_3 = func(mockPrompt3);
-
+      if (!return_value_1) {
+        return false;
+      }
       if (return_value_3.toLowerCase().trim() !== "hot") {
         return false;
       }
@@ -160,12 +185,16 @@ Help him create this program within Blockly, that takes in temperature as input,
         { Temp: 19, Output: "Cool" },
         { Temp: 9, Output: "Cold" },
       ];
-      expected_output.forEach((element) => {
+      for (let i = 0; i < expected_output.length; i++) {
+        const element = expected_output[i];
         const mockPrompt = (message: string) => {
           return element["Temp"];
         };
         const func = new Function("prompt", code);
         const return_value_1: string = func(mockPrompt);
+        if (!return_value_1) {
+          return false;
+        }
 
         if (
           return_value_1.toLowerCase().trim() !==
@@ -173,7 +202,7 @@ Help him create this program within Blockly, that takes in temperature as input,
         ) {
           return false;
         }
-      });
+      }
       return true;
     },
   },
@@ -200,12 +229,14 @@ All other conditions: Walk In Park\n
         { Temp: 30, Cond: "Sunny", Output: "Beach" },
         { Temp: 15, Cond: "Sunny", Output: "Hike" },
         { Temp: 18, Cond: "Sunny", Output: "Hike" },
+        { Temp: 24, Cond: "Sunny", Output: "Hike" },
         { Temp: -8, Cond: "Raining", Output: "Read A Book" },
         { Temp: 9, Cond: "Raining", Output: "Read A Book" },
         { Temp: 10, Cond: "Raining", Output: "Walk In Park" },
         { Temp: 30, Cond: "Raining", Output: "Walk In Park" },
       ];
-      expected_output.forEach((element) => {
+      for (let i = 0; i < expected_output.length; i++) {
+        const element = expected_output[i];
         const mockPrompt = (message: string) => {
           if (
             message.toLowerCase().trim() === "Temperature".toLowerCase().trim()
@@ -219,18 +250,42 @@ All other conditions: Walk In Park\n
         };
         const func = new Function("prompt", code);
         const return_value_1: string = func(mockPrompt);
-
+        if (!return_value_1) {
+          return false;
+        }
         if (
           return_value_1.toLowerCase().trim() !==
           element["Output"].toLowerCase().trim()
         ) {
           return false;
         }
-      });
+      }
       return true;
     },
   },
 ];
+
+const instructionDiv = document.getElementById("instruction");
+
+if (instructionDiv) {
+  instructionDiv.textContent = activityArray[activity]["Instruction"];
+}
+
+const activityHeading = document.getElementById("activity-heading");
+
+if (activityHeading) {
+  activityHeading.textContent = `Activity ${activity + 1}`;
+}
+
+const goBackButton = document.getElementById("backButton");
+
+if (goBackButton) {
+  goBackButton.addEventListener("click", () => {
+    if (activity > 0) {
+      updateQueryParam(--activity);
+    }
+  });
+}
 
 // Register the blocks and generator with Blockly
 Blockly.common.defineBlocks(blocks);
@@ -264,8 +319,15 @@ const testCode = () => {
 
 const submitCode = () => {
   const res = activityArray[activity].checkCode();
-  if (res) {
+  if (res === true) {
     alert("Correct Answer");
+    if (activity < activityArray.length - 1) {
+      updateQueryParam(++activity);
+    } else {
+      navigateTo("difficulty-selection.html");
+    }
+
+    ws.clear();
   } else {
     alert("Incorrect Answer");
   }
@@ -301,23 +363,10 @@ if (ws) {
 
   if (testButton) {
     testButton.addEventListener("click", testCode);
-    console.log(testCode);
   }
   if (submitButton) {
     submitButton.addEventListener("click", submitCode);
   }
-}
-
-const instructionDiv = document.getElementById("instruction");
-
-if (instructionDiv) {
-  instructionDiv.textContent = activityArray[activity]["Instruction"];
-}
-
-const activityHeading = document.getElementById("activity-heading");
-
-if (activityHeading) {
-  activityHeading.textContent = `Activity ${activity + 1}`;
 }
 
 export function navigateTo(route: string) {
