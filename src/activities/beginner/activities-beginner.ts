@@ -161,6 +161,7 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 
 const activityArray = [
   {
+    Title: "You’re Hot or You’re Cold",
     Instruction: `A meteorologist wants to create a small program that reads the temperature from his thermostat. He wants this program to store and output text saying “Hot” if the temperature is above or equal to 30 C else it should store and output “Cold”.
 Help him create this program within Blockly, that takes in temperature as input, outputs the message whether it’s hot or cold.`,
     Hint: [
@@ -212,6 +213,7 @@ Help him create this program within Blockly, that takes in temperature as input,
     },
   },
   {
+    Title: "More Temperatures, Please",
     Instruction: `The meteorologist wants to extend his program he has created to be more specific by including more categories than just hot and cold. The new categories he is creating should be following these conditions:\n
     - Temperature above or equal to 35: Very Hot\n
     - Temperature above or equal 30 but below 35: Hot\n
@@ -262,6 +264,8 @@ Help him create this program within Blockly, that takes in temperature as input,
     },
   },
   {
+    Title: "Everyone Needs a Holiday",
+    Image: "https://via.placeholder.com/150",
     Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions. As well as temperature, he wants his program to now accept if it's sunny, and if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:
 Temperature above or equal to 25 and its "Sunny": Beach\n
 Temperature above or equal to 15 but below 25 and its "Sunny": Hike\n
@@ -330,6 +334,18 @@ const activityHeading = document.getElementById("activity-heading");
 
 if (activityHeading) {
   activityHeading.textContent = `Activity ${activity + 1}`;
+}
+
+
+const imageElement = document.getElementById("taskImage") as HTMLImageElement;
+imageElement.src = "assets/images/Beginner-" + (activity+1)+ ".jpeg";
+
+
+
+const taskHeading = document.getElementById("task-header");
+
+if (taskHeading) {
+  taskHeading.textContent = activityArray[activity]["Title"];
 }
 
 const goBackButton = document.getElementById("backButton");

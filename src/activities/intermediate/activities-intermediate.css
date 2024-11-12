@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff4d0 !important;
+  background-color: #FFF4D0 !important;
 }
 
 pre,
@@ -40,7 +40,7 @@ code {
 
 .blockly-wrapper {
   display: flex;
-  flex: 7;
+  flex: 5;
   height: 100%;
 }
 
@@ -67,8 +67,14 @@ code {
 }
 
 .heading {
-  color: #47a600;
+  color: #47A600;
   font-size: 64px;
+  font-weight: bold;
+  width: fit-content;
+}
+.task-heading{
+  color: #db8000;;
+  font-size: 30px;
   font-weight: bold;
   width: fit-content;
 }
@@ -82,10 +88,15 @@ code {
   height: 100vh;
 }
 
+.heading-wrapper{
+  display: flex;
+  align-items: start !important;
+}
+
 .activity-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   width: 80vw;
 }
 
@@ -104,36 +115,76 @@ code {
   background-color: #ffdba6;
 }
 
+
 .content-wrapper {
   display: flex;
   height: 80vh;
 }
 
 .instructions-wrapper {
-  flex: 1;
+  flex: 3;
   display: grid;
   height: 100%;
   margin-left: 32px;
 }
 
 .activity-image {
-  height: 100%;
-  width: 100%;
+  height: 200px;
+  width: 400px;
   border-radius: 16px;
-  background-color: black;
+}
+
+.task-image{
+  height: 100px;
+  width: 100px;
+  border-radius: 16px;
+}
+
+.task-container {
+  display: flex;
+  align-items: center; /* Vertically aligns items */
+  gap:1rem;
 }
 
 .instructions {
   font-size: 16px;
 }
 
+.instructions-container{
+  overflow-y: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-right: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #cecece;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #505050; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: space-evenly;
+  gap:1rem;
 }
 
 .hint-button {
   display: flex;
+
 }
 
 .button-wrapper button p {
@@ -148,9 +199,15 @@ code {
   height: 40px;
   border-radius: 12px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   transition: 0.3s;
   padding: 2rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.button-icon{
+  font-size: 20px !important;
 }
 
 .button-wrapper button:hover {
@@ -158,13 +215,14 @@ code {
 }
 
 .hint-button {
-  background-color: #1254a9;
+  background-color: #1254A9;
 }
 
 .test-button {
-  background-color: #ff9600;
+  background-color: #FF9600;
 }
 
 .submit-button {
-  background-color: #47a600;
+  background-color: #47A600;
+
 }
