@@ -22,6 +22,7 @@ const params = new URLSearchParams(url.search);
 // Get the value of the 'activity' parameter, default to 0 if it doesn't exist
 let activity = parseInt(params.get("a") || "0", 10);
 
+
 function updateQueryParam(newActivity: number) {
   activity = newActivity;
 
@@ -318,9 +319,7 @@ const goBackButton = document.getElementById("backButton");
 
 if (goBackButton) {
   goBackButton.addEventListener("click", () => {
-    if (activity > 0) {
-      updateQueryParam(--activity);
-    }
+    navigateTo("difficulty-selection.html");
   });
 }
 

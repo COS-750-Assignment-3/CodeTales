@@ -393,9 +393,7 @@ const goBackButton = document.getElementById("backButton");
 
 if (goBackButton) {
   goBackButton.addEventListener("click", () => {
-    if (activity > 0) {
-      updateQueryParam(--activity);
-    }
+    navigateTo("difficulty-selection.html");
   });
 }
 
