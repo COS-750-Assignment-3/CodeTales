@@ -8,6 +8,16 @@ export declare const toolbox: {
     contents: ({
         kind: string;
         name: string;
+        colour: string;
+        contents: {
+            kind: string;
+            type: string;
+        }[];
+        categorystyle?: undefined;
+        custom?: undefined;
+    } | {
+        kind: string;
+        name: string;
         categorystyle: string;
         contents: ({
             kind: string;
@@ -60,6 +70,7 @@ export declare const toolbox: {
                 TIMES?: undefined;
             };
         })[];
+        colour?: undefined;
         custom?: undefined;
     } | {
         kind: string;
@@ -340,6 +351,7 @@ export declare const toolbox: {
             };
             fields?: undefined;
         })[];
+        colour?: undefined;
         custom?: undefined;
     } | {
         kind: string;
@@ -509,6 +521,7 @@ export declare const toolbox: {
                 TO?: undefined;
             };
         })[];
+        colour?: undefined;
         custom?: undefined;
     } | {
         kind: string;
@@ -577,18 +590,21 @@ export declare const toolbox: {
                 LIST?: undefined;
             };
         })[];
+        colour?: undefined;
         custom?: undefined;
     } | {
         kind: string;
         name?: undefined;
-        categorystyle?: undefined;
+        colour?: undefined;
         contents?: undefined;
+        categorystyle?: undefined;
         custom?: undefined;
     } | {
         kind: string;
         name: string;
         categorystyle: string;
         custom: string;
+        colour?: undefined;
         contents?: undefined;
     })[];
 };
