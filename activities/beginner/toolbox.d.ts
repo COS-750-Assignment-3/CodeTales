@@ -81,7 +81,6 @@ export declare const toolbox: {
             type: string;
             fields: {
                 NUM: number;
-                OP?: undefined;
             };
             inputs?: undefined;
         } | {
@@ -104,50 +103,11 @@ export declare const toolbox: {
                         };
                     };
                 };
-                NUM?: undefined;
                 NUMBER_TO_CHECK?: undefined;
                 DIVIDEND?: undefined;
                 DIVISOR?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-                X?: undefined;
-                Y?: undefined;
             };
             fields?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                NUM: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                A?: undefined;
-                B?: undefined;
-                NUMBER_TO_CHECK?: undefined;
-                DIVIDEND?: undefined;
-                DIVISOR?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-                X?: undefined;
-                Y?: undefined;
-            };
-            fields?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            fields?: undefined;
-            inputs?: undefined;
         } | {
             kind: string;
             type: string;
@@ -162,55 +122,10 @@ export declare const toolbox: {
                 };
                 A?: undefined;
                 B?: undefined;
-                NUM?: undefined;
                 DIVIDEND?: undefined;
                 DIVISOR?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-                X?: undefined;
-                Y?: undefined;
             };
             fields?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            fields: {
-                OP: string;
-                NUM?: undefined;
-            };
-            inputs: {
-                NUM: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                A?: undefined;
-                B?: undefined;
-                NUMBER_TO_CHECK?: undefined;
-                DIVIDEND?: undefined;
-                DIVISOR?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-                X?: undefined;
-                Y?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            fields: {
-                OP: string;
-                NUM?: undefined;
-            };
-            inputs?: undefined;
         } | {
             kind: string;
             type: string;
@@ -233,121 +148,7 @@ export declare const toolbox: {
                 };
                 A?: undefined;
                 B?: undefined;
-                NUM?: undefined;
                 NUMBER_TO_CHECK?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-                X?: undefined;
-                Y?: undefined;
-            };
-            fields?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                VALUE: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                LOW: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                HIGH: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                A?: undefined;
-                B?: undefined;
-                NUM?: undefined;
-                NUMBER_TO_CHECK?: undefined;
-                DIVIDEND?: undefined;
-                DIVISOR?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-                X?: undefined;
-                Y?: undefined;
-            };
-            fields?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                FROM: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                TO: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                A?: undefined;
-                B?: undefined;
-                NUM?: undefined;
-                NUMBER_TO_CHECK?: undefined;
-                DIVIDEND?: undefined;
-                DIVISOR?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                X?: undefined;
-                Y?: undefined;
-            };
-            fields?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                X: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                Y: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                A?: undefined;
-                B?: undefined;
-                NUM?: undefined;
-                NUMBER_TO_CHECK?: undefined;
-                DIVIDEND?: undefined;
-                DIVISOR?: undefined;
-                VALUE?: undefined;
-                LOW?: undefined;
-                HIGH?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
             };
             fields?: undefined;
         })[];
@@ -373,89 +174,7 @@ export declare const toolbox: {
                         };
                     };
                 };
-                VALUE?: undefined;
-                FIND?: undefined;
-                STRING?: undefined;
                 SUB?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                VALUE: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            TEXT: string;
-                        };
-                    };
-                    block?: undefined;
-                };
-                TEXT?: undefined;
-                FIND?: undefined;
-                STRING?: undefined;
-                SUB?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                VALUE: {
-                    block: {
-                        type: string;
-                    };
-                    shadow?: undefined;
-                };
-                FIND: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            TEXT: string;
-                        };
-                    };
-                };
-                TEXT?: undefined;
-                STRING?: undefined;
-                SUB?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                VALUE: {
-                    block: {
-                        type: string;
-                    };
-                    shadow?: undefined;
-                };
-                TEXT?: undefined;
-                FIND?: undefined;
-                STRING?: undefined;
-                SUB?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                STRING: {
-                    block: {
-                        type: string;
-                    };
-                };
-                TEXT?: undefined;
-                VALUE?: undefined;
-                FIND?: undefined;
-                SUB?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
             };
         } | {
             kind: string;
@@ -472,122 +191,6 @@ export declare const toolbox: {
                         fields?: undefined;
                     };
                 };
-                VALUE?: undefined;
-                FIND?: undefined;
-                STRING?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                FROM: {
-                    shadow: {
-                        type: string;
-                    };
-                };
-                TO: {
-                    shadow: {
-                        type: string;
-                    };
-                };
-                TEXT: {
-                    shadow: {
-                        type: string;
-                        fields?: undefined;
-                    };
-                };
-                VALUE?: undefined;
-                FIND?: undefined;
-                STRING?: undefined;
-                SUB?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                TEXT: {
-                    shadow: {
-                        type: string;
-                        fields?: undefined;
-                    };
-                };
-                VALUE?: undefined;
-                FIND?: undefined;
-                STRING?: undefined;
-                SUB?: undefined;
-                FROM?: undefined;
-                TO?: undefined;
-            };
-        })[];
-        colour?: undefined;
-        custom?: undefined;
-    } | {
-        kind: string;
-        name: string;
-        categorystyle: string;
-        contents: ({
-            kind: string;
-            type: string;
-            inputs?: undefined;
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                NUM: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            NUM: number;
-                        };
-                    };
-                };
-                VALUE?: undefined;
-                LIST?: undefined;
-                DELIM?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                VALUE: {
-                    block: {
-                        type: string;
-                    };
-                };
-                NUM?: undefined;
-                LIST?: undefined;
-                DELIM?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                LIST: {
-                    block: {
-                        type: string;
-                    };
-                };
-                NUM?: undefined;
-                VALUE?: undefined;
-                DELIM?: undefined;
-            };
-        } | {
-            kind: string;
-            type: string;
-            inputs: {
-                DELIM: {
-                    shadow: {
-                        type: string;
-                        fields: {
-                            TEXT: string;
-                        };
-                    };
-                };
-                NUM?: undefined;
-                VALUE?: undefined;
-                LIST?: undefined;
             };
         })[];
         colour?: undefined;
