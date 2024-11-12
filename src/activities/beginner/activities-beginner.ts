@@ -30,7 +30,7 @@ function updateQueryParam(newActivity: number) {
   params.set("a", activity.toString());
   window.history.replaceState({}, "", `${url.pathname}?${params.toString()}`);
   if (instructionDiv) {
-    instructionDiv.textContent = activityArray[activity]["Instruction"];
+    instructionDiv.innerHTML = activityArray[activity]["Instruction"];
   }
   if (activityHeading) {
     activityHeading.textContent = `Activity ${activity + 1}`;
@@ -162,7 +162,7 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 const activityArray = [
   {
     Title: "You’re Hot or You’re Cold",
-    Instruction: `A meteorologist wants to create a small program that reads the temperature from his thermostat. He wants this program to store and output text saying “Hot” if the temperature is above or equal to 30 C else it should store and output “Cold”.
+    Instruction: `A meteorologist wants to create a small program that reads the temperature from his thermostat. He wants this program to store and output text saying “Hot” if the temperature is above or equal to 30 C else it should store and output “Cold”.<br><br>
 Help him create this program within Blockly, that takes in temperature as input, outputs the message whether it’s hot or cold.`,
     Hint: [
       "The else statement will execute upon every condition not met by the if statement.",
@@ -214,13 +214,13 @@ Help him create this program within Blockly, that takes in temperature as input,
   },
   {
     Title: "More Temperatures, Please",
-    Instruction: `The meteorologist wants to extend his program he has created to be more specific by including more categories than just hot and cold. The new categories he is creating should be following these conditions:\n
-    - Temperature above or equal to 35: Very Hot\n
-    - Temperature above or equal 30 but below 35: Hot\n
-    - Temperature above or equal 20 but below 30: Warm\n
-    - Temperature above or equal 10 but below 20: Cool\n
-    - Temperature above or equal 0 but below 10: Cold\n
-    - Temperature below 0: Very Cold\n
+    Instruction: `The meteorologist wants to extend his program he has created to be more specific by including more categories than just hot and cold. The new categories he is creating should be following these conditions:<br><br>
+    - Temperature above or equal to 35: Very Hot<br>
+    - Temperature above or equal 30 but below 35: Hot<br>
+    - Temperature above or equal 20 but below 30: Warm<br>
+    - Temperature above or equal 10 but below 20: Cool<br>
+    - Temperature above or equal 0 but below 10: Cold<br>
+    - Temperature below 0: Very Cold<br><br>
     Help him create this program in Blockly that takes in temperature and outputs its determined category
     `,
     Hint: ["Else if’s are checked only if the above logic check fails."],
@@ -265,14 +265,13 @@ Help him create this program within Blockly, that takes in temperature as input,
   },
   {
     Title: "Everyone Needs a Holiday",
-    Image: "https://via.placeholder.com/150",
-    Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions. As well as temperature, he wants his program to now accept if it's sunny, and if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:
-Temperature above or equal to 25 and its "Sunny": Beach\n
-Temperature above or equal to 15 but below 25 and its "Sunny": Hike\n
-Temperature below 10 and it's "Raining": Read A Book\n
-All other conditions: Walk In Park\n
-
-    Help him create this program in Blockly that takes in temperature and condition and outputs the activity.
+    Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions.As well as temperature, he wants his program to now accept if it's sunny, and if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:<br><br>
+  - Temperature above or equal to 25 and its "Sunny": Beach <br>
+    - Temperature above or equal to 15 but below 25 and its "Sunny": Hike <br>
+      - Temperature below 10 and it's "Raining": Read A Book<br>
+        - All other conditions: Walk In Park <br>
+          <br>
+          Help him create this program in Blockly that takes in temperature and condition and outputs the activity.
     `,
     Hint: [
       "Make use of the available logical operators learnt about (and, or)",
@@ -327,18 +326,18 @@ All other conditions: Walk In Park\n
 const instructionDiv = document.getElementById("instruction");
 
 if (instructionDiv) {
-  instructionDiv.textContent = activityArray[activity]["Instruction"];
+  instructionDiv.innerHTML = activityArray[activity]["Instruction"];
 }
 
 const activityHeading = document.getElementById("activity-heading");
 
 if (activityHeading) {
-  activityHeading.textContent = `Activity ${activity + 1}`;
+  activityHeading.textContent = `Activity ${activity + 1} `;
 }
 
 
 const imageElement = document.getElementById("taskImage") as HTMLImageElement;
-imageElement.src = "assets/images/Beginner-" + (activity+1)+ ".jpeg";
+imageElement.src = "assets/images/Beginner-" + (activity + 1) + ".jpeg";
 
 
 
@@ -366,6 +365,7 @@ const outputDiv = document.getElementById("output");
 const blocklyDiv = document.getElementById("blocklyDiv");
 const submitButton = document.getElementById("submitButton");
 const testButton = document.getElementById("testButton");
+const hintButton = document.getElementById("hintButton");
 
 if (!blocklyDiv) {
   throw new Error(`div with id 'blocklyDiv' not found`);
@@ -393,10 +393,10 @@ const submitCode = () => {
   if (res === true) {
     showToast("Correct Answer", "Well done! You got the correct answer.");
 
-    localStorage.setItem(`t${activity}`, "2");
+    localStorage.setItem(`t${activity} `, "2");
 
-    if (localStorage.getItem(`t${activity + 1}`) !== "2") {
-      localStorage.setItem(`t${activity + 1}`, "1");
+    if (localStorage.getItem(`t${activity + 1} `) !== "2") {
+      localStorage.setItem(`t${activity + 1} `, "1");
     }
 
     if (activity < activityArray.length - 1) {
@@ -413,6 +413,13 @@ const submitCode = () => {
     );
   }
   return res;
+};
+
+var hintIndex = 0;
+
+const giveHint = () => {
+  const numHints = activityArray[activity]["Hint"].length;
+  showToast("Hint", activityArray[activity]["Hint"][(hintIndex++) % numHints]);
 };
 
 if (ws) {
@@ -447,6 +454,9 @@ if (ws) {
   }
   if (submitButton) {
     submitButton.addEventListener("click", submitCode);
+  }
+  if (hintButton) {
+    hintButton.addEventListener("click", giveHint);
   }
 }
 

@@ -1,77 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <div
-      class="toast"
-      id="myToast"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div class="toast-header">
-        <strong class="mr-auto" id="toast-heading"></strong>
-      </div>
-      <div class="toast-body" id="toast-body"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+  <div class="toast" id="myToast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="mr-auto" id="toast-heading"></strong>
     </div>
+    <div class="toast-body" id="toast-body"></div>
+  </div>
 
-    <div class="center">
-      <div class="activity-wrapper heading-wrapper mb-0">
-        <div class="heading-badge mb-0">
-            <button class="back-button" id="backButton">
-              <i class="fa-solid fa-arrow-left fa-2xl"></i>
-            </button>
-          <h1 class="heading" id="activity-heading"></h1>
-        </div>
+  <div class="center">
+    <div class="activity-wrapper heading-wrapper mb-0">
+      <div class="heading-badge mb-0">
+        <button class="back-button" id="backButton">
+          <i class="fa-solid fa-arrow-left fa-2xl"></i>
+        </button>
+        <h1 class="heading" id="activity-heading"></h1>
+      </div>
 
-        <div class="gap8"></div>
+      <div class="gap8"></div>
 
-        <div class="content-wrapper">
-          <div class="blockly-wrapper">
-            <div id="pageContainer">
-              <!-- <div id="outputPane">
+      <div class="content-wrapper">
+        <div class="blockly-wrapper">
+          <div id="pageContainer">
+            <!-- <div id="outputPane">
                             <pre id="generatedCode"><code></code></pre>
                             <div id="output"></div>
                         </div> -->
-              <div id="blocklyDiv"></div>
-            </div>
+            <div id="blocklyDiv"></div>
           </div>
+        </div>
 
-          <div class="instructions-wrapper">
-            <div class="task-container">
-              <img id="taskImage" class="task-image" />
-              <h2 class="task-heading" id="task-header">
-                
-              </h2>
-            </div>
-            <div class="instructions-container">
-              <p class="instructions" id="instruction"></p>
-            </div>
-            <div class="button-wrapper">
-              <button class="hint-button" id="submitButton">
-                <p>hint</p>
-                <i class="fa-regular fa-lightbulb button-icon"></i>
-              </button>
-              <button class="test-button" id="testButton">
-                <p>test solution</p>
-                <i class="fa-solid fa-vials button-icon"></i>
-              </button>
-              <button class="submit-button" id="submitButton">
-                <p>submit solution</p>
-                <i class="fa-regular fa-paper-plane button-icon"></i>
-              </button>
-            </div>
+        <div class="instructions-wrapper">
+          <div class="task-container">
+            <img id="taskImage" class="task-image" />
+            <h2 class="task-heading" id="task-header">
+
+            </h2>
+          </div>
+          <div class="instructions-container">
+            <p class="instructions" id="instruction"></p>
+          </div>
+          <div class="button-wrapper">
+            <button class="hint-button" id="hintButton">
+              <p>hint</p>
+              <i class="fa-regular fa-lightbulb button-icon"></i>
+            </button>
+            <button class="test-button" id="testButton">
+              <p>test solution</p>
+              <i class="fa-solid fa-vials button-icon"></i>
+            </button>
+            <button class="submit-button" id="submitButton">
+              <p>submit solution</p>
+              <i class="fa-regular fa-paper-plane button-icon"></i>
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
