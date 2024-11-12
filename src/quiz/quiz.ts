@@ -33,17 +33,17 @@ export function setDifficulty() {
         // 3-5 intermediate
         // 6-8 advanced
         if (total <= 1) {
-            navigateTo(`index.html?t=${0}`);
+            navigateTo(`activities-beginner.html?a=0`);
         }
         if (total === 2) {
             localStorage.setItem("t3", "1");
-            navigateTo(`index.html?t=${3}`);
+            navigateTo(`activities-intermediate.html?a=0`);
 
         }
         if (total === 3) {
             localStorage.setItem("t3", "1");
             localStorage.setItem("t6", "1");
-            navigateTo(`index.html?t=${6}`);
+            navigateTo(`activities-advanced.html?a=0`);
         }
 
     } else {

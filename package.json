@@ -29,6 +29,7 @@
   "dependencies": {
     "@types/bootstrap": "^5.2.10",
     "blockly": "^11.0.0",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "cos-750-assignment-3": "file:"
   }
 }
