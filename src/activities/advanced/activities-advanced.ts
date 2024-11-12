@@ -432,10 +432,10 @@ const submitCode = () => {
   const res = activityArray[activity].checkCode();
   if (res === true) {
     showToast("Correct Answer", "Well done! You got the correct answer.");
-    localStorage.setItem(`t${activity + 6} `, "2");
+    localStorage.setItem(`t${activity + 6}`, "2");
 
-    if (localStorage.getItem(`t${activity + 7} `) !== "2") {
-      localStorage.setItem(`t${activity + 7} `, "1");
+    if (localStorage.getItem(`t${activity + 7}`) !== "2") {
+      localStorage.setItem(`t${activity + 7}`, "1");
     }
 
     if (activity < activityArray.length - 1) {
