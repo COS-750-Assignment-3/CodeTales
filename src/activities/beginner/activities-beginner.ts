@@ -67,6 +67,7 @@ let input_blocks = [
     type: "input_dropdown",
     message0: "Input %1",
     output: null,
+    colour: 65,
     args0: [
       {
         type: "field_dropdown",
@@ -79,6 +80,7 @@ let input_blocks = [
     type: "input_dropdown",
     message0: "Input %1",
     output: null,
+    colour: 65,
     args0: [
       {
         type: "field_dropdown",
@@ -91,6 +93,7 @@ let input_blocks = [
     type: "input_dropdown",
     message0: "Input %1",
     output: null,
+    colour: 65,
     args0: [
       {
         type: "field_dropdown",
@@ -108,6 +111,7 @@ var output_block = {
   type: "output_block",
   message0: "Output %1",
   previousStatement: null,
+  colour: 24,
   args0: [
     {
       type: "field_variable",

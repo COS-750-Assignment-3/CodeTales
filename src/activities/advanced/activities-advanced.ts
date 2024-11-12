@@ -12,7 +12,8 @@ import { save, load } from "../../serialization";
 import { toolbox } from "./toolbox";
 import "./activities-advanced.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import { showToast } from "../../toast/toast";
+import { colour } from "blockly/core/utils";
 // Get the current URL
 const url = new URL(window.location.href);
 
@@ -44,7 +45,7 @@ function updateQueryParam(newActivity: number) {
       toolbox.contents.unshift({
         kind: "category",
         name: "Inputs",
-        categorystyle: "action_category",
+        colour: "#ffff00",
         contents: [
           {
             kind: "block",
@@ -91,6 +92,7 @@ let input_blocks = [
     type: "input_dropdown",
     message0: "Input %1",
     output: null,
+    colour: 65,
     args0: [
       {
         type: "field_dropdown",
@@ -104,6 +106,7 @@ let input_blocks = [
     type: "input_dropdown",
     message0: "Input %1",
     output: null,
+    colour: 65,
     args0: [
       {
         type: "field_dropdown",
@@ -117,6 +120,7 @@ let input_blocks = [
 var output_block = {
   type: "output_block",
   message0: "Output %1",
+  colour: 24,
   previousStatement: null,
   args0: [
     {
@@ -142,7 +146,7 @@ if (activity != 1) {
     toolbox.contents.unshift({
       kind: "category",
       name: "Inputs",
-      categorystyle: "action_category",
+      colour: "#ffff00",
       contents: [
         {
           kind: "block",
@@ -414,14 +418,17 @@ const testCode = () => {
 const submitCode = () => {
   const res = activityArray[activity].checkCode();
   if (res === true) {
-    alert("Correct Answer");
+    showToast("Correct Answer", "Well done! You got the correct answer.");
     if (activity < activityArray.length - 1) {
       updateQueryParam(++activity);
     } else {
       navigateTo("difficulty-selection.html");
     }
   } else {
-    alert("Incorrect Answer");
+    showToast(
+      "Incorrect Answer",
+      "Oh No! You got the incorrect answer. Give it another try."
+    );
   }
   return res;
 };

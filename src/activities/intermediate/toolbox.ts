@@ -18,7 +18,7 @@ export const toolbox = {
     {
       kind: "category",
       name: "Inputs",
-      categorystyle: "action_category",
+      colour: "#ffff00",
       contents: [
         {
           kind: "block",
@@ -29,7 +29,7 @@ export const toolbox = {
     {
       kind: "category",
       name: "Output",
-      categorystyle: "action_category",
+      colour: "#ff6600",
       contents: [
         {
           kind: "block",

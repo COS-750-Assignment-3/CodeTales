@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { colour } from "blockly/core/utils";
 /*
 This toolbox contains nearly every single built-in block that Blockly offers,
 in addition to the custom block 'add_text' this sample app adds.
@@ -18,7 +19,7 @@ export const toolbox = {
     {
       kind: "category",
       name: "Inputs",
-      categorystyle: "action_category",
+      colour: "#ffff00",
       contents: [
         {
           kind: "block",
@@ -29,7 +30,7 @@ export const toolbox = {
     {
       kind: "category",
       name: "Output",
-      categorystyle: "action_category",
+      colour: "#ff6600",
       contents: [
         {
           kind: "block",
