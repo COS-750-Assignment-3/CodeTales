@@ -22,7 +22,6 @@ const params = new URLSearchParams(url.search);
 // Get the value of the 'activity' parameter, default to 0 if it doesn't exist
 let activity = parseInt(params.get("a") || "0", 10);
 
-
 function updateQueryParam(newActivity: number) {
   activity = newActivity;
 
@@ -155,7 +154,9 @@ const activityArray = [
   {
     Title: "Things aren’t Adding Up",
     Instruction: `Little Johnny is struggling with his homework. He was tasked with adding up all the numbers from 1 to an inputted number x including 1 and x.<br><br>
-    Help him by creating a blockly program that allows the input of number x and does this calculation for him.`,
+    Help him by creating a blockly program that allows the input of number x and does this calculation for him.<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+`,
     Hint: [
       "You will need to use a loop",
       "Create a variable block outside of the loop block to keep track of the total number",
@@ -194,7 +195,9 @@ const activityArray = [
     Instruction: `Little Johnny is still struggling with his homework. His teacher asked him to add up all the even numbers from 1 to an inputted number x. <br><br>
     Johnny has come and asked you for help. <br><br>
 
-    Create a blockly program that adds together all the even numbers from 1 to x (including 1 and x) to help Johnny.`,
+    Create a blockly program that adds together all the even numbers from 1 to x (including 1 and x) to help Johnny.<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+`,
     Hint: [
       "Use the even block inside of a loop block",
       "Create a variable block outside of the loop block to keep track of the total number",
@@ -237,6 +240,8 @@ Create a Blockly program that:<br><br>
 - Asks for Sarah's target amount and weekly saving amount.<br>
 - Uses a loop to calculate how many weeks it will take for her to reach or exceed her target.<br>
 - Outputs the total number of weeks needed.<br>
+<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+
 
     `,
     Hint: [
@@ -303,11 +308,8 @@ if (activityHeading) {
   activityHeading.textContent = `Activity ${activity + 1}`;
 }
 
-
 const imageElement = document.getElementById("taskImage") as HTMLImageElement;
 imageElement.src = "assets/images/Intermediate-" + (activity + 1) + ".jpeg";
-
-
 
 const taskHeading = document.getElementById("task-header");
 
@@ -383,7 +385,7 @@ var hintIndex = 0;
 
 const giveHint = () => {
   const numHints = activityArray[activity]["Hint"].length;
-  showToast("Hint", activityArray[activity]["Hint"][(hintIndex++) % numHints]);
+  showToast("Hint", activityArray[activity]["Hint"][hintIndex++ % numHints]);
 };
 
 if (ws) {
