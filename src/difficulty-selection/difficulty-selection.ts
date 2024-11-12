@@ -73,7 +73,14 @@ function initialize() {
 initialize();
 
 export function navigateToTask(task: number) {
-    navigateTo(`index.html?t=${task}`);
+    if (task < 3) {
+        navigateTo(`activities-beginner.html?a=${task % 3}`);
+    }
+    else if (task < 6) {
+        navigateTo(`activities-intermediate.html?a=${task % 3}`);
+    } else {
+        navigateTo(`activities-advanced.html?a=${task % 3}`);
+    }
 }
 
 (window as any).navigateToTask = navigateToTask;

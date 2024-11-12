@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin"); // Import the plugin
 
 // Base config that applies to either development or production mode.
 const config = {
@@ -77,6 +78,11 @@ const config = {
       template: "src/activities/advanced/activities-advanced.html",
       filename: "activities-advanced.html",
       chunks: ["activitiesAdvanced"],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/assets/images", to: "assets/images" }, // Copy images to `dist/assets/images`
+      ],
     }),
   ],
 };
