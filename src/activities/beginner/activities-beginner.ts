@@ -161,6 +161,7 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 
 const activityArray = [
   {
+    Title: "You’re Hot or You’re Cold",
     Instruction: `A meteorologist wants to create a small program that reads the temperature from his thermostat. He wants this program to store and output text saying “Hot” if the temperature is above or equal to 30 C else it should store and output “Cold”.<br><br>
 Help him create this program within Blockly, that takes in temperature as input, outputs the message whether it’s hot or cold.`,
     Hint: [
@@ -212,6 +213,7 @@ Help him create this program within Blockly, that takes in temperature as input,
     },
   },
   {
+    Title: "More Temperatures, Please",
     Instruction: `The meteorologist wants to extend his program he has created to be more specific by including more categories than just hot and cold. The new categories he is creating should be following these conditions:<br><br>
     - Temperature above or equal to 35: Very Hot<br>
     - Temperature above or equal 30 but below 35: Hot<br>
@@ -262,13 +264,14 @@ Help him create this program within Blockly, that takes in temperature as input,
     },
   },
   {
-    Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions. As well as temperature, he wants his program to now accept if it's sunny, and if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:<br><br>
-- Temperature above or equal to 25 and its "Sunny": Beach<br>
-- Temperature above or equal to 15 but below 25 and its "Sunny": Hike<br>
-- Temperature below 10 and it's "Raining": Read A Book<br>
-- All other conditions: Walk In Park<br>
-<br><br>
-    Help him create this program in Blockly that takes in temperature and condition and outputs the activity.
+    Title: "Everyone Needs a Holiday",
+    Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions.As well as temperature, he wants his program to now accept if it's sunny, and if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:<br><br>
+  - Temperature above or equal to 25 and its "Sunny": Beach <br>
+    - Temperature above or equal to 15 but below 25 and its "Sunny": Hike <br>
+      - Temperature below 10 and it's "Raining": Read A Book<br>
+        - All other conditions: Walk In Park <br>
+          <br>
+          Help him create this program in Blockly that takes in temperature and condition and outputs the activity.
     `,
     Hint: [
       "Make use of the available logical operators learnt about (and, or)",
@@ -329,7 +332,19 @@ if (instructionDiv) {
 const activityHeading = document.getElementById("activity-heading");
 
 if (activityHeading) {
-  activityHeading.textContent = `Activity ${activity + 1}`;
+  activityHeading.textContent = `Activity ${activity + 1} `;
+}
+
+
+const imageElement = document.getElementById("taskImage") as HTMLImageElement;
+imageElement.src = "assets/images/Beginner-" + (activity + 1) + ".jpeg";
+
+
+
+const taskHeading = document.getElementById("task-header");
+
+if (taskHeading) {
+  taskHeading.textContent = activityArray[activity]["Title"];
 }
 
 const goBackButton = document.getElementById("backButton");
@@ -380,10 +395,10 @@ const submitCode = () => {
   if (res === true) {
     showToast("Correct Answer", "Well done! You got the correct answer.");
 
-    localStorage.setItem(`t${activity}`, "2");
+    localStorage.setItem(`t${activity} `, "2");
 
-    if (localStorage.getItem(`t${activity + 1}`) !== "2") {
-      localStorage.setItem(`t${activity + 1}`, "1");
+    if (localStorage.getItem(`t${activity + 1} `) !== "2") {
+      localStorage.setItem(`t${activity + 1} `, "1");
     }
 
     if (activity < activityArray.length - 1) {

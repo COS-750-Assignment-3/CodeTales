@@ -205,6 +205,7 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 
 const activityArray = [
   {
+    Title: "It’s All a Pyramid Scheme",
     Instruction: `Teacher Jill wants a visual representation of a "number pyramid" for her math class. Each row of the pyramid contains numbers starting from 1 up to the row number. For example, a pyramid of 5 rows would look like this:<br><br>
 
 1<br>
@@ -255,6 +256,7 @@ Create a Blockly program that:<br><br>
     },
   },
   {
+    Title: "It’s About Times",
     Instruction: `Teacher Jill wants a new poster in her classroom that will show all the times tables from 1 to 12. She is however too lazy to type them out herself. She has come to you to help her out. She has already typed out the following structure:<br>
 <br>
         X123456789101112<br>
@@ -271,6 +273,7 @@ Create a Blockly program that:<br><br>
         11<br>
         12<br><br>
         Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).<br>
+
 `,
     Hint: [
       "Use a text variable block to store the times tables and then print out that variable at the end",
@@ -304,18 +307,20 @@ Create a Blockly program that:<br><br>
     },
   },
   {
-    Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration. The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid. Jill can choose the grid size (e.g., 5x5, 8x8, etc.).<br><br>
-For example, a 5x5 grid would look like this:<br><br>
-XOXOX<br>
+    Title: "X’s and O’s",
+    Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration.The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid.Jill can choose the grid size(e.g., 5x5, 8x8, etc.).<br> <br>
+      For example, a 5x5 grid would look like this: <br><br>
+        XOXOX<br>
 OXOXO<br>
 XOXOX<br>
 OXOXO<br>
 XOXOX<br>
 <br>
-Create a Blockly program that:<br>
-- Prompts for the grid size (e.g., 5x5, 8x8).<br>
-- Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).<br>
-    `,
+Create a Blockly program that: <br>
+  - Prompts for the grid size(e.g., 5x5, 8x8).<br>
+    - Uses a nested loop to build and display each row in the correct format(you can use the text New Line block to break the line).<br>
+
+      `,
     Hint: [
       "Check if the sum of the row and column index is even or odd to alternate between X and O.",
     ],
@@ -372,7 +377,16 @@ if (instructionDiv) {
 const activityHeading = document.getElementById("activity-heading");
 
 if (activityHeading) {
-  activityHeading.textContent = `Activity ${activity + 1}`;
+  activityHeading.textContent = `Activity ${activity + 1} `;
+}
+
+const imageElement = document.getElementById("taskImage") as HTMLImageElement;
+imageElement.src = "assets/images/Advanced-" + (activity + 1) + ".jpeg";
+
+const taskHeading = document.getElementById("task-header");
+
+if (taskHeading) {
+  taskHeading.textContent = activityArray[activity]["Title"];
 }
 
 const goBackButton = document.getElementById("backButton");
@@ -420,10 +434,10 @@ const submitCode = () => {
   const res = activityArray[activity].checkCode();
   if (res === true) {
     showToast("Correct Answer", "Well done! You got the correct answer.");
-    localStorage.setItem(`t${activity + 6}`, "2");
+    localStorage.setItem(`t${activity + 6} `, "2");
 
-    if (localStorage.getItem(`t${activity + 7}`) !== "2") {
-      localStorage.setItem(`t${activity + 7}`, "1");
+    if (localStorage.getItem(`t${activity + 7} `) !== "2") {
+      localStorage.setItem(`t${activity + 7} `, "1");
     }
 
     if (activity < activityArray.length - 1) {
