@@ -395,6 +395,7 @@ const outputDiv = document.getElementById("output");
 const blocklyDiv = document.getElementById("blocklyDiv");
 const submitButton = document.getElementById("submitButton");
 const testButton = document.getElementById("testButton");
+const hintButton = document.getElementById("hintButton");
 
 if (!blocklyDiv) {
   throw new Error(`div with id 'blocklyDiv' not found`);
@@ -439,6 +440,13 @@ const submitCode = () => {
   return res;
 };
 
+var hintIndex = 0;
+
+const giveHint = () => {
+  const numHints = activityArray[activity]["Hint"].length;
+  showToast("Hint", activityArray[activity]["Hint"][(hintIndex++) % numHints]);
+};
+
 if (ws) {
   // Load the initial state from storage and run the code.
   load(ws);
@@ -471,6 +479,9 @@ if (ws) {
   }
   if (submitButton) {
     submitButton.addEventListener("click", submitCode);
+  }
+  if (hintButton) {
+    hintButton.addEventListener("click", giveHint);
   }
 }
 
