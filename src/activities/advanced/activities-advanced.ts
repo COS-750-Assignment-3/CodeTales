@@ -35,6 +35,15 @@ function updateQueryParam(newActivity: number) {
     activityHeading.textContent = `Activity ${activity + 1}`;
   }
 
+  
+  if (taskHeading) {
+    taskHeading.textContent = activityArray[activity]["Title"];
+  }
+
+  if(imageElement){
+    imageElement.src = "assets/images/Advanced-" + (activity + 1) + ".jpeg";
+  }
+
   ws.clear();
   delete Blockly.Blocks["input_dropdown"];
   if (activity != 1) {
