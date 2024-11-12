@@ -164,7 +164,7 @@ const activityArray = [
     Title: "You’re Hot or You’re Cold",
     Instruction: `A meteorologist wants to create a small program that reads the temperature from his thermostat. He wants this program to store and output text saying “Hot” if the temperature is above or equal to 30 C else it should store and output “Cold”.<br><br>
 Help him create this program within Blockly, that takes in temperature as input, outputs the message whether it’s hot or cold.<br>
-<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and the Output <b>MUST</b> use the Output block<br>
 `,
     Hint: [
       "The else statement will execute upon every condition not met by the if statement.",
@@ -224,7 +224,7 @@ Help him create this program within Blockly, that takes in temperature as input,
     - Temperature above or equal 0 but below 10: Cold<br>
     - Temperature below 0: Very Cold<br><br>
     Help him create this program in Blockly that takes in temperature and outputs its determined category<br>
-    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and the Output <b>MUST</b> use the Output block<br>
 
     `,
     Hint: ["Else if’s are checked only if the above logic check fails."],
@@ -276,7 +276,7 @@ Help him create this program within Blockly, that takes in temperature as input,
         - Everything else: Walk In Park <br>
           <br>
           Help him create this program in Blockly that takes in temperature and condition and outputs the activity.<br>
-          <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+          <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and the Output <b>MUST</b> use the Output block<br>
 
     `,
     Hint: [

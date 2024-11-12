@@ -155,7 +155,7 @@ const activityArray = [
     Title: "Things aren’t Adding Up",
     Instruction: `Little Johnny is struggling with his homework. He was tasked with adding up all the numbers from 1 to an inputted number x including 1 and x.<br><br>
     Help him by creating a blockly program that allows the input of number x and does this calculation for him.<br>
-    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and the Output <b>MUST</b> use the Output block<br>
 `,
     Hint: [
       "You will need to use a loop",
@@ -196,7 +196,7 @@ const activityArray = [
     Johnny has come and asked you for help. <br><br>
 
     Create a blockly program that adds together all the even numbers from 1 to x (including 1 and x) to help Johnny.<br>
-    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and the Output <b>MUST</b> use the Output block<br>
 `,
     Hint: [
       "Use the even block inside of a loop block",
@@ -240,7 +240,7 @@ Create a Blockly program that:<br><br>
 - Asks for Sarah's target amount and weekly saving amount.<br>
 - Uses a loop to calculate how many weeks it will take for her to reach or exceed her target.<br>
 - Outputs the total number of weeks needed.<br>
-<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and the Output <b>MUST</b> use the Output block<br>
 
 
     `,
