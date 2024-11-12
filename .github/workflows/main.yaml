@@ -8,6 +8,9 @@ on:
     branches:
       - "main"
 
+permissions:
+  contents: write 
+
 jobs:
   test-and-deploy-frontend:
     runs-on: ubuntu-latest
@@ -24,7 +27,7 @@ jobs:
         run: npm install
         working-directory: .
 
-      - name: Build Angular app to prod
+      - name: Build website
         if: github.ref == 'refs/heads/main'
         working-directory: .
         run: npm run build
