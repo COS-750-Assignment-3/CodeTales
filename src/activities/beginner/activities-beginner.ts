@@ -163,7 +163,9 @@ const activityArray = [
   {
     Title: "You’re Hot or You’re Cold",
     Instruction: `A meteorologist wants to create a small program that reads the temperature from his thermostat. He wants this program to store and output text saying “Hot” if the temperature is above or equal to 30 C else it should store and output “Cold”.<br><br>
-Help him create this program within Blockly, that takes in temperature as input, outputs the message whether it’s hot or cold.`,
+Help him create this program within Blockly, that takes in temperature as input, outputs the message whether it’s hot or cold.<br>
+<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+`,
     Hint: [
       "The else statement will execute upon every condition not met by the if statement.",
     ],
@@ -221,7 +223,9 @@ Help him create this program within Blockly, that takes in temperature as input,
     - Temperature above or equal 10 but below 20: Cool<br>
     - Temperature above or equal 0 but below 10: Cold<br>
     - Temperature below 0: Very Cold<br><br>
-    Help him create this program in Blockly that takes in temperature and outputs its determined category
+    Help him create this program in Blockly that takes in temperature and outputs its determined category<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+
     `,
     Hint: ["Else if’s are checked only if the above logic check fails."],
     checkCode: function () {
@@ -265,13 +269,15 @@ Help him create this program within Blockly, that takes in temperature as input,
   },
   {
     Title: "Everyone Needs a Holiday",
-    Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions.As well as temperature, he wants his program to now accept if it's sunny, and if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:<br><br>
+    Instruction: `Finally, the meteorologist wants to change his program slightly to determine what activity should be done based on the conditions.As well as temperature, he wants his program to now accept if it's sunny, or if it’s raining as input. Like the previous questions, the text to be output must be stored and output.\n He then wants to make the following categorisations:<br><br>
   - Temperature above or equal to 25 and its "Sunny": Beach <br>
     - Temperature above or equal to 15 but below 25 and its "Sunny": Hike <br>
       - Temperature below 10 and it's "Raining": Read A Book<br>
-        - All other conditions: Walk In Park <br>
+        - Everything else: Walk In Park <br>
           <br>
-          Help him create this program in Blockly that takes in temperature and condition and outputs the activity.
+          Help him create this program in Blockly that takes in temperature and condition and outputs the activity.<br>
+          <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
+
     `,
     Hint: [
       "Make use of the available logical operators learnt about (and, or)",
@@ -335,11 +341,8 @@ if (activityHeading) {
   activityHeading.textContent = `Activity ${activity + 1} `;
 }
 
-
 const imageElement = document.getElementById("taskImage") as HTMLImageElement;
 imageElement.src = "assets/images/Beginner-" + (activity + 1) + ".jpeg";
-
-
 
 const taskHeading = document.getElementById("task-header");
 
@@ -419,7 +422,7 @@ var hintIndex = 0;
 
 const giveHint = () => {
   const numHints = activityArray[activity]["Hint"].length;
-  showToast("Hint", activityArray[activity]["Hint"][(hintIndex++) % numHints]);
+  showToast("Hint", activityArray[activity]["Hint"][hintIndex++ % numHints]);
 };
 
 if (ws) {

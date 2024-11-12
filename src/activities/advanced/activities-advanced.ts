@@ -217,6 +217,7 @@ const activityArray = [
 Create a Blockly program that:<br><br>
 - Prompts for the number of rows in the pyramid.<br>
 - Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).<br>
+<br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
 `,
     Hint: [
       "Use an outer loop for each row, and an inner loop to add numbers from 1 up to the current row number.",
@@ -273,6 +274,7 @@ Create a Blockly program that:<br><br>
         11<br>
         12<br><br>
         Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).<br>
+        <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
 
 `,
     Hint: [
@@ -319,6 +321,7 @@ XOXOX<br>
 Create a Blockly program that: <br>
   - Prompts for the grid size(e.g., 5x5, 8x8).<br>
     - Uses a nested loop to build and display each row in the correct format(you can use the text New Line block to break the line).<br>
+    <br><b>NOTE</b>: For Inputs, you <b>MUST</b> use the Input block, and for Outputs, you <b>MUST</b> use the Output block<br>
 
       `,
     Hint: [
@@ -456,7 +459,7 @@ var hintIndex = 0;
 
 const giveHint = () => {
   const numHints = activityArray[activity]["Hint"].length;
-  showToast("Hint", activityArray[activity]["Hint"][(hintIndex++) % numHints]);
+  showToast("Hint", activityArray[activity]["Hint"][hintIndex++ % numHints]);
 };
 
 if (ws) {
