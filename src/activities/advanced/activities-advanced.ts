@@ -29,7 +29,7 @@ function updateQueryParam(newActivity: number) {
   params.set("a", activity.toString());
   window.history.replaceState({}, "", `${url.pathname}?${params.toString()}`);
   if (instructionDiv) {
-    instructionDiv.textContent = activityArray[activity]["Instruction"];
+    instructionDiv.innerHTML = activityArray[activity]["Instruction"];
   }
   if (activityHeading) {
     activityHeading.textContent = `Activity ${activity + 1}`;
@@ -206,17 +206,17 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 const activityArray = [
   {
     Title: "It’s All a Pyramid Scheme",
-    Instruction: `Teacher Jill wants a visual representation of a "number pyramid" for her math class. Each row of the pyramid contains numbers starting from 1 up to the row number. For example, a pyramid of 5 rows would look like this:
+    Instruction: `Teacher Jill wants a visual representation of a "number pyramid" for her math class. Each row of the pyramid contains numbers starting from 1 up to the row number. For example, a pyramid of 5 rows would look like this:<br><br>
 
-1
-12
-123
-1234
-12345
-
-Create a Blockly program that:
-Prompts for the number of rows in the pyramid.
-Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).
+1<br>
+12<br>
+123<br>
+1234<br>
+12345<br>
+<br>
+Create a Blockly program that:<br><br>
+- Prompts for the number of rows in the pyramid.<br>
+- Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).<br>
 `,
     Hint: [
       "Use an outer loop for each row, and an inner loop to add numbers from 1 up to the current row number.",
@@ -257,22 +257,23 @@ Uses a nested loop to build and display each row in the correct format (you can 
   },
   {
     Title: "It’s About Times",
-    Instruction: `Teacher Jill wants a new poster in her classroom that will show all the times tables from 1 to 12. She is however too lazy to type them out herself. She has come to you to help her out. She has already typed out the following structure:
+    Instruction: `Teacher Jill wants a new poster in her classroom that will show all the times tables from 1 to 12. She is however too lazy to type them out herself. She has come to you to help her out. She has already typed out the following structure:<br>
+<br>
+        X123456789101112<br>
+        1<br>
+        2<br>
+        3<br>
+        4<br>
+        5<br>
+        6<br>
+        7<br>
+        8<br>
+        9<br>
+        10<br>
+        11<br>
+        12<br><br>
+        Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).<br>
 
-        X123456789101112
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        8
-        9
-        10
-        11
-        12
-        Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).
 `,
     Hint: [
       "Use a text variable block to store the times tables and then print out that variable at the end",
@@ -307,18 +308,19 @@ Uses a nested loop to build and display each row in the correct format (you can 
   },
   {
     Title: "X’s and O’s",
-    Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration. The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid. Jill can choose the grid size (e.g., 5x5, 8x8, etc.).
-For example, a 5x5 grid would look like this:
-XOXOX
-OXOXO
-XOXOX
-OXOXO
-XOXOX
+    Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration.The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid.Jill can choose the grid size(e.g., 5x5, 8x8, etc.).<br> <br>
+      For example, a 5x5 grid would look like this: <br><br>
+        XOXOX<br>
+OXOXO<br>
+XOXOX<br>
+OXOXO<br>
+XOXOX<br>
+<br>
+Create a Blockly program that: <br>
+  - Prompts for the grid size(e.g., 5x5, 8x8).<br>
+    - Uses a nested loop to build and display each row in the correct format(you can use the text New Line block to break the line).<br>
 
-Create a Blockly program that:
-Prompts for the grid size (e.g., 5x5, 8x8).
-Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).
-    `,
+      `,
     Hint: [
       "Check if the sum of the row and column index is even or odd to alternate between X and O.",
     ],
@@ -369,17 +371,17 @@ Uses a nested loop to build and display each row in the correct format (you can 
 const instructionDiv = document.getElementById("instruction");
 
 if (instructionDiv) {
-  instructionDiv.textContent = activityArray[activity]["Instruction"];
+  instructionDiv.innerHTML = activityArray[activity]["Instruction"];
 }
 
 const activityHeading = document.getElementById("activity-heading");
 
 if (activityHeading) {
-  activityHeading.textContent = `Activity ${activity + 1}`;
+  activityHeading.textContent = `Activity ${activity + 1} `;
 }
 
 const imageElement = document.getElementById("taskImage") as HTMLImageElement;
-imageElement.src = "assets/images/Advanced-" + (activity+1)+ ".jpeg";
+imageElement.src = "assets/images/Advanced-" + (activity + 1) + ".jpeg";
 
 const taskHeading = document.getElementById("task-header");
 
@@ -407,6 +409,7 @@ const outputDiv = document.getElementById("output");
 const blocklyDiv = document.getElementById("blocklyDiv");
 const submitButton = document.getElementById("submitButton");
 const testButton = document.getElementById("testButton");
+const hintButton = document.getElementById("hintButton");
 
 if (!blocklyDiv) {
   throw new Error(`div with id 'blocklyDiv' not found`);
@@ -431,10 +434,10 @@ const submitCode = () => {
   const res = activityArray[activity].checkCode();
   if (res === true) {
     showToast("Correct Answer", "Well done! You got the correct answer.");
-    localStorage.setItem(`t${activity + 6}`, "2");
+    localStorage.setItem(`t${activity + 6} `, "2");
 
-    if (localStorage.getItem(`t${activity + 7}`) !== "2") {
-      localStorage.setItem(`t${activity + 7}`, "1");
+    if (localStorage.getItem(`t${activity + 7} `) !== "2") {
+      localStorage.setItem(`t${activity + 7} `, "1");
     }
 
     if (activity < activityArray.length - 1) {
@@ -449,6 +452,13 @@ const submitCode = () => {
     );
   }
   return res;
+};
+
+var hintIndex = 0;
+
+const giveHint = () => {
+  const numHints = activityArray[activity]["Hint"].length;
+  showToast("Hint", activityArray[activity]["Hint"][(hintIndex++) % numHints]);
 };
 
 if (ws) {
@@ -483,6 +493,9 @@ if (ws) {
   }
   if (submitButton) {
     submitButton.addEventListener("click", submitCode);
+  }
+  if (hintButton) {
+    hintButton.addEventListener("click", giveHint);
   }
 }
 
