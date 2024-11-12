@@ -1,1 +1,1 @@
-{"version":3,"file":"activities-beginner.d.ts","sourceRoot":"","sources":["../../../src/activities/beginner/activities-beginner.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAQH,OAAO,2BAA2B,CAAC;AACnC,OAAO,sCAAsC,CAAC;AAC9C,OAAO,uBAAuB,CAAC;AAgc/B,wBAAgB,UAAU,CAAC,KAAK,EAAE,MAAM,QAEvC"}
+{"version":3,"file":"activities-beginner.d.ts","sourceRoot":"","sources":["../../../src/activities/beginner/activities-beginner.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAQH,OAAO,2BAA2B,CAAC;AACnC,OAAO,sCAAsC,CAAC;AAC9C,OAAO,uBAAuB,CAAC;AAmc/B,wBAAgB,UAAU,CAAC,KAAK,EAAE,MAAM,QAEvC"}
