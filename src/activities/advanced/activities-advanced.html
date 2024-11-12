@@ -24,15 +24,17 @@
     </div>
 
     <div class="center">
-      <div class="activity-wrapper">
-        <div class="heading-badge">
-          <button class="back-button" id="backButton">
-            <i class="fa-solid fa-arrow-left fa-2xl"></i>
-          </button>
-          <h1 class="mb-0 heading" id="activity-heading"></h1>
+      <div class="activity-wrapper heading-wrapper mb-0">
+        <div class="heading-badge mb-0">
+          <a href="/difficulty-selection.html">
+            <button href="/" class="back-button" id="backButton">
+              <i class="fa-solid fa-arrow-left fa-2xl"></i>
+            </button>
+          </a>
+          <h1 class="heading" id="activity-heading"></h1>
         </div>
 
-        <div class="gap32"></div>
+        <div class="gap8"></div>
 
         <div class="content-wrapper">
           <div class="blockly-wrapper">
@@ -46,20 +48,27 @@
           </div>
 
           <div class="instructions-wrapper">
-            <div class="activity-image"></div>
-            <p class="instructions" id="instruction"></p>
+            <div class="task-container">
+              <img id="taskImage" class="task-image" />
+              <h2 class="task-heading" id="task-header">
+                
+              </h2>
+            </div>
+            <div class="instructions-container">
+              <p class="instructions" id="instruction"></p>
+            </div>
             <div class="button-wrapper">
-              <button class="hint-button" id="hintButton">
+              <button class="hint-button" id="submitButton">
                 <p>hint</p>
-                <i class="fa-regular fa-lightbulb"></i>
+                <i class="fa-regular fa-lightbulb button-icon"></i>
               </button>
               <button class="test-button" id="testButton">
                 <p>test solution</p>
-                <i class="fa-solid fa-vials"></i>
+                <i class="fa-solid fa-vials button-icon"></i>
               </button>
               <button class="submit-button" id="submitButton">
                 <p>submit solution</p>
-                <i class="fa-regular fa-paper-plane"></i>
+                <i class="fa-regular fa-paper-plane button-icon"></i>
               </button>
             </div>
           </div>
