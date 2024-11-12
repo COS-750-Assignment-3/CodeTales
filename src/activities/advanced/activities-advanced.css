@@ -1,0 +1,170 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff4d0 !important;
+}
+
+pre,
+code {
+  overflow: auto;
+}
+
+#pageContainer {
+  display: flex;
+  width: 100%;
+}
+
+#blocklyDiv {
+  flex-basis: 100%;
+  height: 100%;
+  min-width: 600px;
+}
+
+#outputPane {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  flex: 0 0 400px;
+  overflow: auto;
+  margin: 1rem;
+}
+
+#generatedCode {
+  height: 50%;
+  background-color: rgb(247, 240, 228);
+}
+
+#output {
+  height: 50%;
+}
+
+.blockly-wrapper {
+  display: flex;
+  flex: 7;
+  height: 100%;
+}
+
+.gap16 {
+  height: 16px;
+}
+
+.gap32 {
+  height: 32px;
+}
+
+.gap64 {
+  height: 64px;
+}
+
+.heading-badge {
+  display: flex;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 16px;
+  width: fit-content;
+  padding: 0.5rem 2rem;
+  align-items: center;
+}
+
+.heading {
+  color: #47a600;
+  font-size: 64px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.center {
+  /* Center the div in the screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.activity-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80vw;
+}
+
+.back-button {
+  color: #616161;
+  background-color: transparent;
+  border: solid 6px #616161;
+  border-radius: 8px;
+  height: 54px;
+  width: 54px;
+  transition: 0.3s;
+  margin-right: 32px;
+}
+
+.back-button:hover {
+  background-color: #ffdba6;
+}
+
+.content-wrapper {
+  display: flex;
+  height: 80vh;
+}
+
+.instructions-wrapper {
+  flex: 1;
+  display: grid;
+  height: 100%;
+  margin-left: 32px;
+}
+
+.activity-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
+  background-color: black;
+}
+
+.instructions {
+  font-size: 16px;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.hint-button {
+  display: flex;
+}
+
+.button-wrapper button p {
+  margin: 0;
+  margin-right: 20px;
+}
+
+.button-wrapper button {
+  display: flex;
+  align-items: center;
+  border: none;
+  height: 40px;
+  border-radius: 12px;
+  color: white;
+  font-size: 20px;
+  transition: 0.3s;
+  padding: 2rem;
+}
+
+.button-wrapper button:hover {
+  filter: brightness(1.2);
+}
+
+.hint-button {
+  background-color: #1254a9;
+}
+
+.test-button {
+  background-color: #ff9600;
+}
+
+.submit-button {
+  background-color: #47a600;
+}

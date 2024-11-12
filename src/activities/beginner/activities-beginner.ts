@@ -12,7 +12,7 @@ import { save, load } from "../../serialization";
 import { toolbox } from "./toolbox";
 import "./activities-beginner.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../toast/toast.css"
+import "../../toast/toast.css";
 import { showToast } from "../../toast/toast";
 
 // Get the current URL
@@ -35,6 +35,18 @@ function updateQueryParam(newActivity: number) {
   if (activityHeading) {
     activityHeading.textContent = `Activity ${activity + 1}`;
   }
+
+  ws.clear();
+  delete Blockly.Blocks["input_dropdown"];
+  Blockly.defineBlocksWithJsonArray([input_blocks[activity]]);
+  javascriptGenerator.forBlock["input_dropdown"] = function (block, generator) {
+    const field = block.getFieldValue("FIELDNAME");
+    let prompt = `prompt("${field}")`;
+    if (field === "temperature") {
+      prompt = `Number(${prompt})`;
+    }
+    return [prompt, Order.ATOMIC];
+  };
 }
 
 var start = {
@@ -50,32 +62,62 @@ var end = {
   style: "logic_blocks",
   previousStatement: null,
 };
-
-var input_temperature = {
-  type: "input_dropdown",
-  message0: "Input %1",
-  output: null,
-  args0: [
-    {
-      type: "field_dropdown",
-      name: "FIELDNAME",
-      options: [
-        ["Temperature", "temperature"],
-        ["Condition", "condition"],
-      ],
-    },
-  ],
-};
+let input_blocks = [
+  {
+    type: "input_dropdown",
+    message0: "Input %1",
+    output: null,
+    colour: 65,
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "FIELDNAME",
+        options: [["Temperature", "temperature"]],
+      },
+    ],
+  },
+  {
+    type: "input_dropdown",
+    message0: "Input %1",
+    output: null,
+    colour: 65,
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "FIELDNAME",
+        options: [["Temperature", "temperature"]],
+      },
+    ],
+  },
+  {
+    type: "input_dropdown",
+    message0: "Input %1",
+    output: null,
+    colour: 65,
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "FIELDNAME",
+        options: [
+          ["Temperature", "temperature"],
+          ["Condition", "condition"],
+        ],
+      },
+    ],
+  },
+];
 
 var output_block = {
   type: "output_block",
   message0: "Output %1",
   previousStatement: null,
+  colour: 24,
   args0: [
     {
-      type: "field_input",
-      name: "output",
-      text: "hello",
+      type: "field_variable",
+      name: "VAR",
+      variable: "output",
+      variableTypes: [""],
     },
   ],
 };
@@ -83,7 +125,7 @@ var output_block = {
 Blockly.defineBlocksWithJsonArray([
   start,
   end,
-  input_temperature,
+  input_blocks[activity],
   output_block,
 ]);
 
@@ -97,13 +139,24 @@ javascriptGenerator.forBlock["end_block"] = function (block, generator) {
 
 javascriptGenerator.forBlock["input_dropdown"] = function (block, generator) {
   const field = block.getFieldValue("FIELDNAME");
-  return [`prompt("${field}")`, Order.ATOMIC];
+  let prompt = `prompt("${field}")`;
+  if (field === "temperature") {
+    prompt = `Number(${prompt})`;
+  }
+  return [prompt, Order.ATOMIC];
 };
 
 javascriptGenerator.forBlock["output_block"] = function (block, generator) {
-  const field = block.getFieldValue("output");
+  if (generator.nameDB_ === undefined) {
+    return "return '';";
+  }
+  var myvar = generator.nameDB_.getName(
+    block.getFieldValue("VAR"),
+    Blockly.Names.NameType.VARIABLE
+  );
+  console.log(myvar);
 
-  return `return "${field}"`;
+  return `return ${myvar};`;
 };
 
 const activityArray = [
@@ -336,9 +389,18 @@ const testCode = () => {
 };
 
 const submitCode = () => {
+  console.log("Done");
   const res = activityArray[activity].checkCode();
+
   if (res === true) {
     showToast("Correct Answer", "Well done! You got the correct answer.");
+
+    localStorage.setItem(`t${activity}`, "2");
+
+    if (localStorage.getItem(`t${activity + 1}`) !== "2") {
+      localStorage.setItem(`t${activity + 1}`, "1");
+    }
+
     if (activity < activityArray.length - 1) {
       updateQueryParam(++activity);
     } else {
@@ -347,7 +409,10 @@ const submitCode = () => {
 
     ws.clear();
   } else {
-    showToast("Incorrect Answer", "Oh No! You got the incorrect answer. Give it another try.");
+    showToast(
+      "Incorrect Answer",
+      "Oh No! You got the incorrect answer. Give it another try."
+    );
   }
   return res;
 };

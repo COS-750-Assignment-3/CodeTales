@@ -74,6 +74,11 @@ const config = {
       filename: "activities-intermediate.html",
       chunks: ["activitiesIntermediate"],
     }),
+    new HtmlWebpackPlugin({
+      template: "src/activities/advanced/activities-advanced.html",
+      filename: "activities-advanced.html",
+      chunks: ["activitiesAdvanced"],
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "src/assets/images", to: "assets/images" }, // Copy images to `dist/assets/images`
