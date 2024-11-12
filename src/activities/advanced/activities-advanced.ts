@@ -37,6 +37,22 @@ function updateQueryParam(newActivity: number) {
   ws.clear();
   delete Blockly.Blocks["input_dropdown"];
   if (activity != 1) {
+    const index = toolbox.contents.findIndex(
+      (obj) => obj.name != null && obj.name == "Inputs"
+    );
+    if (index === -1) {
+      toolbox.contents.unshift({
+        kind: "category",
+        name: "Inputs",
+        categorystyle: "action_category",
+        contents: [
+          {
+            kind: "block",
+            type: "input_dropdown",
+          },
+        ],
+      });
+    }
     Blockly.defineBlocksWithJsonArray([input_blocks[activity]]);
     javascriptGenerator.forBlock["input_dropdown"] = function (
       block,
@@ -45,7 +61,15 @@ function updateQueryParam(newActivity: number) {
       const field = block.getFieldValue("FIELDNAME");
       return [`Number(prompt("${field}"))`, Order.ATOMIC];
     };
+  } else {
+    const index = toolbox.contents.findIndex(
+      (obj) => obj.name != null && obj.name == "Inputs"
+    );
+    if (index !== -1) {
+      toolbox.contents.splice(index, 1);
+    }
   }
+  ws.updateToolbox(toolbox);
 }
 
 var start = {
@@ -75,6 +99,7 @@ let input_blocks = [
       },
     ],
   },
+  {},
   {
     type: "input_dropdown",
     message0: "Input %1",
@@ -110,6 +135,23 @@ var new_line_block = {
 };
 
 if (activity != 1) {
+  const index = toolbox.contents.findIndex(
+    (obj) => obj.name != null && obj.name == "Inputs"
+  );
+  if (index === -1) {
+    toolbox.contents.unshift({
+      kind: "category",
+      name: "Inputs",
+      categorystyle: "action_category",
+      contents: [
+        {
+          kind: "block",
+          type: "input_dropdown",
+        },
+      ],
+    });
+  }
+
   Blockly.defineBlocksWithJsonArray([
     start,
     end,
@@ -119,6 +161,12 @@ if (activity != 1) {
   ]);
 } else {
   Blockly.defineBlocksWithJsonArray([start, end, output_block, new_line_block]);
+  const index = toolbox.contents.findIndex(
+    (obj) => obj.name != null && obj.name == "Inputs"
+  );
+  if (index !== -1) {
+    toolbox.contents.splice(index, 1);
+  }
 }
 
 javascriptGenerator.forBlock["start_block"] = function (block, generator) {
@@ -156,14 +204,14 @@ const activityArray = [
     Instruction: `Teacher Jill wants a visual representation of a "number pyramid" for her math class. Each row of the pyramid contains numbers starting from 1 up to the row number. For example, a pyramid of 5 rows would look like this:
 
 1
-1 2
-1 2 3
-1 2 3 4
-1 2 3 4 5
+12
+123
+1234
+12345
 
 Create a Blockly program that:
 Prompts for the number of rows in the pyramid.
-Uses a nested loop to build and display each row in the correct format (you can use the text \\n to break the line, and the last number of every line MUST have a space after it).
+Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).
 `,
     Hint: [
       "Use an outer loop for each row, and an inner loop to add numbers from 1 up to the current row number.",
@@ -189,7 +237,7 @@ Uses a nested loop to build and display each row in the correct format (you can 
         let expected_value = "";
         for (let i = 1; i <= element["rows"]; i++) {
           for (let j = 1; j <= i; j++) {
-            expected_value += j + " ";
+            expected_value += j;
           }
 
           expected_value += "\n";
@@ -205,7 +253,7 @@ Uses a nested loop to build and display each row in the correct format (you can 
   {
     Instruction: `Teacher Jill wants a new poster in her classroom that will show all the times tables from 1 to 12. She is however too lazy to type them out herself. She has come to you to help her out. She has already typed out the following structure:
 
-        X 1 2 3 4 5 6 7 8 9 10 11 12
+        X123456789101112
         1
         2
         3
@@ -218,7 +266,7 @@ Uses a nested loop to build and display each row in the correct format (you can 
         10
         11
         12
-        Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text \\n to break the line, and the last number of every line MUST have a space after it).
+        Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).
 `,
     Hint: [
       "Use a text variable block to store the times tables and then print out that variable at the end",
@@ -236,11 +284,11 @@ Uses a nested loop to build and display each row in the correct format (you can 
         return false;
       }
 
-      let expected_value = "X 1 2 3 4 5 6 7 8 9 10 11 12 \n";
+      let expected_value = "X123456789101112\n";
       for (let i = 1; i <= 12; i++) {
-        expected_value += i + " ";
+        expected_value += i;
         for (let j = 1; j <= 12; j++) {
-          expected_value += i * j + " ";
+          expected_value += i * j;
         }
         expected_value += "\n";
       }
@@ -254,15 +302,15 @@ Uses a nested loop to build and display each row in the correct format (you can 
   {
     Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration. The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid. Jill can choose the grid size (e.g., 5x5, 8x8, etc.).
 For example, a 5x5 grid would look like this:
-X O X O X
-O X O X O
-X O X O X
-O X O X O
-X O X O X
+XOXOX
+OXOXO
+XOXOX
+OXOXO
+XOXOX
 
 Create a Blockly program that:
 Prompts for the grid size (e.g., 5x5, 8x8).
-Uses a nested loop to build and display each row in the correct format (you can use the text \\n to break the line, and the last character of every line MUST have a space after it).
+Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).
     `,
     Hint: [
       "Check if the sum of the row and column index is even or odd to alternate between X and O.",
@@ -294,9 +342,9 @@ Uses a nested loop to build and display each row in the correct format (you can 
         for (let i = 0; i < element["Square Side Length"]; i++) {
           for (let j = 0; j < element["Square Side Length"]; j++) {
             if ((i + j) % 2 === 0) {
-              expected_value += "X ";
+              expected_value += "X";
             } else {
-              expected_value += "O ";
+              expected_value += "O";
             }
           }
           expected_value += "\n";
@@ -347,7 +395,7 @@ const testButton = document.getElementById("testButton");
 if (!blocklyDiv) {
   throw new Error(`div with id 'blocklyDiv' not found`);
 }
-const ws = Blockly.inject(blocklyDiv, { toolbox });
+let ws = Blockly.inject(blocklyDiv, { toolbox });
 
 // This function resets the code and output divs, shows the
 // generated code from the workspace, and evals the code.
