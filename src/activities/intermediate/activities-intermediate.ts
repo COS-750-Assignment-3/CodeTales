@@ -28,7 +28,7 @@ function updateQueryParam(newActivity: number) {
   params.set("a", activity.toString());
   window.history.replaceState({}, "", `${url.pathname}?${params.toString()}`);
   if (instructionDiv) {
-    instructionDiv.textContent = activityArray[activity]["Instruction"];
+    instructionDiv.innerHTML = activityArray[activity]["Instruction"];
   }
   if (activityHeading) {
     activityHeading.textContent = `Activity ${activity + 1}`;
@@ -152,7 +152,7 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 
 const activityArray = [
   {
-    Instruction: `Little Johnny is struggling with his homework. He was tasked with adding up all the numbers from 1 to an inputted number x including 1 and x.
+    Instruction: `Little Johnny is struggling with his homework. He was tasked with adding up all the numbers from 1 to an inputted number x including 1 and x.<br><br>
     Help him by creating a blockly program that allows the input of number x and does this calculation for him.`,
     Hint: [
       "You will need to use a loop",
@@ -188,8 +188,8 @@ const activityArray = [
     },
   },
   {
-    Instruction: `Little Johnny is still struggling with his homework. His teacher asked him to add up all the even numbers from 1 to an inputted number x. 
-    Johnny has come and asked you for help. 
+    Instruction: `Little Johnny is still struggling with his homework. His teacher asked him to add up all the even numbers from 1 to an inputted number x. <br><br>
+    Johnny has come and asked you for help. <br><br>
     Create a blockly program that adds together all the even numbers from 1 to x (including 1 and x) to help Johnny.`,
     Hint: [
       "Use the even block inside of a loop block",
@@ -227,12 +227,11 @@ const activityArray = [
     },
   },
   {
-    Instruction: `Sarah wants to save money to buy a new bike. She sets a target amount and plans to save a certain amount each week. If she reaches her target amount by the end of a week, she wants to stop saving. Otherwise, she’ll keep saving until her goal is met.
-Create a Blockly program that:
--Asks for Sarah's target amount and weekly saving amount.
--Uses a loop to calculate how many weeks it will take for her to reach or exceed her target.
--Outputs the total number of weeks needed.
-
+    Instruction: `Sarah wants to save money to buy a new bike. She sets a target amount and plans to save a certain amount each week. If she reaches her target amount by the end of a week, she wants to stop saving. Otherwise, she’ll keep saving until her goal is met.<br><br>
+Create a Blockly program that:<br><br>
+- Asks for Sarah's target amount and weekly saving amount.<br>
+- Uses a loop to calculate how many weeks it will take for her to reach or exceed her target.<br>
+- Outputs the total number of weeks needed.<br>
     `,
     Hint: [
       "Use a variable to keep track of the total saved amount, and update it each loop iteration.",
@@ -289,7 +288,7 @@ Create a Blockly program that:
 const instructionDiv = document.getElementById("instruction");
 
 if (instructionDiv) {
-  instructionDiv.textContent = activityArray[activity]["Instruction"];
+  instructionDiv.innerHTML = activityArray[activity]["Instruction"];
 }
 
 const activityHeading = document.getElementById("activity-heading");

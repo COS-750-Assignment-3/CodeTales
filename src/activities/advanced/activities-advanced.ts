@@ -29,7 +29,7 @@ function updateQueryParam(newActivity: number) {
   params.set("a", activity.toString());
   window.history.replaceState({}, "", `${url.pathname}?${params.toString()}`);
   if (instructionDiv) {
-    instructionDiv.textContent = activityArray[activity]["Instruction"];
+    instructionDiv.innerHTML = activityArray[activity]["Instruction"];
   }
   if (activityHeading) {
     activityHeading.textContent = `Activity ${activity + 1}`;
@@ -205,17 +205,17 @@ javascriptGenerator.forBlock["output_block"] = function (block, generator) {
 
 const activityArray = [
   {
-    Instruction: `Teacher Jill wants a visual representation of a "number pyramid" for her math class. Each row of the pyramid contains numbers starting from 1 up to the row number. For example, a pyramid of 5 rows would look like this:
+    Instruction: `Teacher Jill wants a visual representation of a "number pyramid" for her math class. Each row of the pyramid contains numbers starting from 1 up to the row number. For example, a pyramid of 5 rows would look like this:<br><br>
 
-1
-12
-123
-1234
-12345
-
-Create a Blockly program that:
-Prompts for the number of rows in the pyramid.
-Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).
+1<br>
+12<br>
+123<br>
+1234<br>
+12345<br>
+<br>
+Create a Blockly program that:<br><br>
+- Prompts for the number of rows in the pyramid.<br>
+- Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).<br>
 `,
     Hint: [
       "Use an outer loop for each row, and an inner loop to add numbers from 1 up to the current row number.",
@@ -255,22 +255,22 @@ Uses a nested loop to build and display each row in the correct format (you can 
     },
   },
   {
-    Instruction: `Teacher Jill wants a new poster in her classroom that will show all the times tables from 1 to 12. She is however too lazy to type them out herself. She has come to you to help her out. She has already typed out the following structure:
-
-        X123456789101112
-        1
-        2
-        3
-        4
-        5
-        6
-        7
-        8
-        9
-        10
-        11
-        12
-        Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).
+    Instruction: `Teacher Jill wants a new poster in her classroom that will show all the times tables from 1 to 12. She is however too lazy to type them out herself. She has come to you to help her out. She has already typed out the following structure:<br>
+<br>
+        X123456789101112<br>
+        1<br>
+        2<br>
+        3<br>
+        4<br>
+        5<br>
+        6<br>
+        7<br>
+        8<br>
+        9<br>
+        10<br>
+        11<br>
+        12<br><br>
+        Create a blockly program that will print out the times tables from 1 to 12 to fit into this grid (you can use the text New Line block to break the line).<br>
 `,
     Hint: [
       "Use a text variable block to store the times tables and then print out that variable at the end",
@@ -304,17 +304,17 @@ Uses a nested loop to build and display each row in the correct format (you can 
     },
   },
   {
-    Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration. The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid. Jill can choose the grid size (e.g., 5x5, 8x8, etc.).
-For example, a 5x5 grid would look like this:
-XOXOX
-OXOXO
-XOXOX
-OXOXO
-XOXOX
-
-Create a Blockly program that:
-Prompts for the grid size (e.g., 5x5, 8x8).
-Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).
+    Instruction: `Teacher Jill wants a pattern of "X" and "O" for a new classroom decoration. The pattern should alternate between "X" and "O" for each cell, creating a checkered square grid. Jill can choose the grid size (e.g., 5x5, 8x8, etc.).<br><br>
+For example, a 5x5 grid would look like this:<br><br>
+XOXOX<br>
+OXOXO<br>
+XOXOX<br>
+OXOXO<br>
+XOXOX<br>
+<br>
+Create a Blockly program that:<br>
+- Prompts for the grid size (e.g., 5x5, 8x8).<br>
+- Uses a nested loop to build and display each row in the correct format (you can use the text New Line block to break the line).<br>
     `,
     Hint: [
       "Check if the sum of the row and column index is even or odd to alternate between X and O.",
@@ -366,7 +366,7 @@ Uses a nested loop to build and display each row in the correct format (you can 
 const instructionDiv = document.getElementById("instruction");
 
 if (instructionDiv) {
-  instructionDiv.textContent = activityArray[activity]["Instruction"];
+  instructionDiv.innerHTML = activityArray[activity]["Instruction"];
 }
 
 const activityHeading = document.getElementById("activity-heading");
